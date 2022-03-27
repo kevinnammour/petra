@@ -1,14 +1,10 @@
 <?php
-    require "../vendor/autoload.php";
-    // loads the .env file
-    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . './../');
-    // suppresses any exception that is thrown if the .env does not exist
-    $dotenv->safeLoad();
+    $db_config = parse_ini_file("../.env");
     
-    $db_host = $_ENV['DB_HOST'];
-    $db_user = $_ENV['DB_USER'];
-    $db_pass = $_ENV['DB_PASS'];
-    $db_name = $_ENV['DB_NAME'];
+    $db_host = $db_config['DB_HOST'];
+    $db_user = $db_config['DB_USER'];
+    $db_pass = $db_config['DB_PASS'];
+    $db_name = $db_config['DB_NAME'];
 
     $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 

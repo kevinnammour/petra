@@ -1,6 +1,5 @@
 <?php
     require "../vendor/autoload.php";
-
     // loads the .env file
     $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . './../');
     // suppresses any exception that is thrown if the .env does not exist

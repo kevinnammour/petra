@@ -1,14 +1,17 @@
 <?php
-    $db_config = parse_ini_file("../.env");
-    
-    $db_host = $db_config['DB_HOST'];
-    $db_user = $db_config['DB_USER'];
-    $db_pass = $db_config['DB_PASS'];
-    $db_name = $db_config['DB_NAME'];
+    require(__DIR__ . '/../vendor/autoload.php');
+
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . "./../");
+    $dotenv->safeLoad();
+
+    $db_host = $_ENV['DB_HOST'];
+    $db_user = $_ENV['DB_USER'];
+    $db_pass = $_ENV['DB_PASS'];
+    $db_name = $_ENV['DB_NAME'];
 
     $mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
 
-    if(mysqli_connect_errno()) {
-        die("Failed connection");
+    if (mysqli_connect_errno()) {
+        die("Connection failed");
     }
 ?>

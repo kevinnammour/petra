@@ -4,5 +4,6 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    echo $username . ' ' . $password;
+    $hash = password_hash($password, PASSWORD_BCRYPT, array('cost'=>11));
+    
 ?>

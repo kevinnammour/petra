@@ -1,2 +1,2 @@
 server/.env
-server/db/db-setup.sql
+server/test/

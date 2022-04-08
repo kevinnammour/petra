@@ -1,5 +1,5 @@
 <?php
-    require __DIR__ . '/../../db/config.php';
+    require(__DIR__.'/../../db/config.inc.php');
 
     $email_or_username = $_POST['email_or_username'];
     $password = $_POST['password'];

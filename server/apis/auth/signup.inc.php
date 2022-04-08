@@ -14,15 +14,12 @@
     $response;
     try {
         $query->execute();
-        // 200 -> OK
-        $response = array("status" => 200);
+        // User created successfully
+        $response = array("status" => 201);
     } catch (mysqli_sql_exception $e) {
         if($e->getCode() == 1062) {
             // Conflict: Username or email already exist
             $response = array("status" => 409);
-        } else {
-            // Unkown error
-            $response = array("status" => 500);
         }
     }
     echo json_encode($response);

@@ -16,27 +16,25 @@
     $query->bind_param("s", $email_or_username);
     $query->execute();
 
-    $array = $query->get_result();
+    $result = $query->get_result();
+    $response;
 
-    $response = [];
-
-    while ($user = $array->fetch_assoc()) {
-        $response[] = $user;
-    }
-
-    $hash = $response[0]['password'];
-    $json_response;
-
-    if (password_verify($password, $hash)) {
-        $json_reponse = json_encode(array(
-            'success' => true,
-            'result' => $response[0],
-        ));
+    if(mysqli_num_rows($result) == 0) {
+        // User not found
+        $response = array("status" => 404);
     } else {
-        $json_reponse = json_encode(array(
-            'success' => false,
-            'message' => 'Invalid credentials',
-        ));
+        $array = [];
+        while ($user = $result->fetch_assoc()) {
+            $array[] = $user;
+        }
+        $hash = $array[0]['password'];
+        if (password_verify($password, $hash)) {
+            // Logon succeeded 
+            $response = array("status" => 200);
+        } else {
+            // Logon failed
+            $response = array("status" => 401);
+        }
     }
-    echo json_encode($json_response);
+    echo json_encode($response);
 ?>

@@ -14,7 +14,11 @@
         $query = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
     }
     $query->bind_param("s", $email_or_username);
-    $query->execute();
+
+    try {
+        $query->execute();
+    } catch (mysqli_sql_exception $e) {}
+
 
     $result = $query->get_result();
     $response;

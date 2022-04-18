@@ -31,10 +31,16 @@ ion-content {
     padding-left: 30px;
     padding-right: 30px;
 
+    .login__anchor-forgotpass {
+      color: var(--ion-color-tertiary);
+      display: block;
+      text-align: right;
+    }
+
     ion-button {
       display: flex;
       margin: auto;
-      margin-top: 69px;
+      margin-top: 40px;
       height: 55px;
       font-size: 18px;
       border-radius: 50px;

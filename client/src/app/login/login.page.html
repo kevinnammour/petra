@@ -1,0 +1,25 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <img src="assets/logo.png" alt="" />
+    <h1>Petra</h1>
+  </div>
+
+  <form id="form">
+    <app-input type="text" placeholder="Email or username"></app-input>
+    <app-input type="password" placeholder="Password"></app-input>
+    <ion-button size="large" shape="round"
+      ><span>Sign in</span><ion-icon name="log-in"></ion-icon></ion-button>
+  </form>
+
+  <a class = "login__anchor-signup" href="#">Don't have an account? Sign up!</a>
+</ion-content>

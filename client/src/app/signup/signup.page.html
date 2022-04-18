@@ -1,9 +1,28 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>signup</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div id="header">
+    <img src="assets/logo.png" alt="" />
+    <h1>Petra</h1>
+  </div>
 
+  <form id="form">
+    <app-input type="text" placeholder="Full name"></app-input>
+    <app-input type="text" placeholder="Username"></app-input>
+    <app-input type="text" placeholder="Email"></app-input>
+    <app-input type="password" placeholder="Password"></app-input>
+    <a class = "login__anchor-agreements" href="#">By signing up, you agree with the Terms and Conditions and Privacy Policy.</a>
+    <ion-button size="large" shape="round"
+      ><span>Create account</span></ion-button>
+  </form>
+
+  <a class = "signup__anchor-login" href="#">Already have an account? Sign in!</a>
 </ion-content>

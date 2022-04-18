@@ -19,8 +19,8 @@
     </div>
 
     <div id = "auth-redirections">
-      <ion-button size="large" shape="round"><span>Sign in</span><ion-icon name="log-in"></ion-icon></ion-button>
-      <ion-button size="large" shape="round"><span>Sign up</span><ion-icon name="person-add"></ion-icon></ion-button>
+      <ion-button (click)="goToLoginPage()" size="large" shape="round"><span>Sign in</span><ion-icon name="log-in"></ion-icon></ion-button>
+      <ion-button (click)="goToSignUpPage()" size="large" shape="round"><span>Sign up</span><ion-icon name="person-add"></ion-icon></ion-button>
     </div>
   </div>
 </ion-content>

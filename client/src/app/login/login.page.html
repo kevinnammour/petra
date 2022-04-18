@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="primary">
+      <ion-button (click)="goToLandingPage()" color="primary">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -22,5 +22,5 @@
       ><span>Sign in</span><ion-icon name="log-in"></ion-icon></ion-button>
   </form>
 
-  <a class = "login__anchor-signup" href="#">Don't have an account? Sign up!</a>
+  <a class = "login__anchor-signup" (click)="goToSignUpPage()" routerDirection="backward">Don't have an account? Sign up!</a>
 </ion-content>

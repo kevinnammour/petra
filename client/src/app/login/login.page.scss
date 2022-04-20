@@ -7,63 +7,69 @@ ion-toolbar {
 ion-content {
   --background: #f5f5f5;
 
-  #header {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .container {
+    width: calc(100% - 10%);
+    margin: 60px auto 0px auto;
 
-    img {
-      width: 175px;
-    }
-
-    h1 {
-      font-size: 30px;
-      font-weight: bold;
-      color: #ea4c89;
-      font-family: "Poppins";
-    }
-  }
-
-  #form {
-    margin-top: 66px;
-    padding-left: 30px;
-    padding-right: 30px;
-
-    .login__anchor-forgotpass {
-      color: var(--ion-color-tertiary);
-      display: block;
-      text-align: right;
-    }
-
-    ion-button {
-      display: flex;
-      margin: auto;
+    #header {
       margin-top: 40px;
-      height: 50px;
-      font-size: 18px;
-      border-radius: 50px;
-      box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
-      font-family: "Poppins";
-      font-weight: normal;
-      width: 165px;
-      text-transform: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-      span {
-        padding-right: 5px;
+      img {
+        width: 175px;
       }
 
-      ion-icon {
-        padding-left: 5px;
+      h1 {
+        font-size: 30px;
+        font-weight: bold;
+        color: #ea4c89;
+        font-family: "Poppins";
       }
     }
-  }
 
-  a.login__anchor-signup {
-    color: var(--ion-color-tertiary);
-    display: flex;
-    justify-content: center;
-    margin: 45px;
+    #form {
+      margin-top: 66px;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      .login__anchor-forgotpass {
+        color: var(--ion-color-tertiary);
+        display: block;
+        text-align: right;
+      }
+
+      ion-button {
+        display: flex;
+        margin: auto;
+        margin-top: 40px;
+        height: 50px;
+        font-size: 18px;
+        border-radius: 50px;
+        box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+        font-family: "Poppins";
+        font-weight: normal;
+        width: 165px;
+        text-transform: none;
+
+        span {
+          padding-right: 5px;
+        }
+
+        ion-icon {
+          padding-left: 5px;
+        }
+      }
+    }
+
+    a.login__anchor-signup {
+      color: var(--ion-color-tertiary);
+      display: flex;
+      justify-content: center;
+      margin: 45px;
+      text-decoration: underline;
+    }
   }
 }

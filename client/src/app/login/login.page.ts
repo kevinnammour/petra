@@ -17,5 +17,9 @@ export class LoginPage implements OnInit {
     this.route.navigate(['signup']);
   }
 
+  goToHomePage() {
+    this.route.navigate(['home']);
+  }
+
   ngOnInit() {}
 }

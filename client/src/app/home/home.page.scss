@@ -1,27 +1,61 @@
-#container {
-  text-align: center;
+ion-header {
+  ion-toolbar {
+    --background: #f5f5f5;
+    height: 60px;
+    display: flex;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    h1 {
+      margin-left: 25px;
+      color: var(--ion-color-primary);
+      font-family: "Poppins";
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    img {
+      position: fixed;
+      top: 10px;
+      height: 50px;
+      right: 25px;
+      vertical-align: middle;
+    }
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-content {
+  --background: #f5f5f5;
+
+  .container {
+    width: calc(100% - 60px);
+    margin: 35px auto 0px auto;
+
+    h1 {
+      font-size: 25px;
+      font-family: "Poppins";
+      font-weight: bold;
+      color: var(--ion-color-secondary);
+    }
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-footer {
+  ion-toolbar {
+    --background: var(--ion-color-primary);
+    height: 60px;
+    display: flex;
+    border-radius: 30px 30px 0px 0px;
 
-  color: #8c8c8c;
+    ion-button {
+      --box-shadow: none;
+      height: 75px;
+      --border-radius: 50px;
+    }
 
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+    .wrap-nav {
+      width: 90%;
+      display: flex;
+      margin: auto;
+      justify-content: space-evenly;
+    }
+  }
 }

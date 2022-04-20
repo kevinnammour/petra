@@ -5,12 +5,17 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { InputModule } from '../components/input/input.module';
+
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    InputModule,
+    SwiperModule,
     HomePageRoutingModule
   ],
   declarations: [HomePage]

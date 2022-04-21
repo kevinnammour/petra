@@ -59,6 +59,10 @@ ion-content {
       font-size: 100%;
       font-weight: bold;
     }
+
+    ion-item {
+      --padding-start: 0;
+    }
   }
 }
 

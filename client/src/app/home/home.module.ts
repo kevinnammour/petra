@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { InputModule } from '../components/input/input.module';
 
 import { SwiperModule } from 'swiper/angular';
+import { SearchModalComponent } from '../components/search-modal/search-modal.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { SwiperModule } from 'swiper/angular';
     SwiperModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, SearchModalComponent],
+  entryComponents: [SearchModalComponent]
 })
 export class HomePageModule {}

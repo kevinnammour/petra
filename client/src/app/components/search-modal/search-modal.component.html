@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <ion-item class="ion-margin-bottom" color="primary">
+      <ion-input type="text" placeholder="Enter country or city!"></ion-input>
+    </ion-item>
+
+    <h1>Advanced Filters</h1>
+    <div class="budget">
+      <h4>Budget in $</h4>
+      <span>Minimum</span>
+      <ion-range
+        class="cust-range"
+        debounce="500"
+        min="0"
+        max="100"
+        pin="true"
+        snaps="true"
+        step="1"
+        ticks="false"
+        color="primary"
+      >
+      </ion-range>
+      <span>Maximum</span>
+      <ion-range
+        class="cust-range"
+        debounce="500"
+        min="0"
+        max="100"
+        pin="true"
+        snaps="true"
+        step="1"
+        ticks="false"
+        color="primary"
+      >
+      </ion-range>
+    </div>
+    <hr />
+    <div class="weather">
+      <h4>Weather</h4>
+      <ion-select multiple="true" value="all">
+        <ion-select-option value="hiking">Sunny</ion-select-option>
+        <ion-select-option value="atv">Cloudy</ion-select-option>
+        <ion-select-option value="paintball">Rainy</ion-select-option>
+        <ion-select-option value="kayaking">Snowy</ion-select-option>
+        <ion-select-option value="all">All</ion-select-option>
+      </ion-select>
+    </div>
+    <hr />
+    <div class="activities">
+      <h4>Activities</h4>
+      <ion-select multiple="true" value="all">
+        <ion-select-option value="hiking">Hiking</ion-select-option>
+        <ion-select-option value="atv">ATV</ion-select-option>
+        <ion-select-option value="paintball">Paintball</ion-select-option>
+        <ion-select-option value="kayaking">Kayaking</ion-select-option>
+        <ion-select-option value="biking">Biking</ion-select-option>
+        <ion-select-option value="skydiving">Skydiving</ion-select-option>
+        <ion-select-option value="all">All</ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+</ion-content>

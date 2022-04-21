@@ -49,9 +49,19 @@ ion-content {
     .slide-container > img {
       width: 100%;
     }
+
+    .slide-container > span {
+      position: fixed;
+      bottom: 30px;
+      left: 30px;
+      color: white;
+      font-family: "Poppins";
+      font-size: 100%;
+      font-weight: bold;
+    }
   }
 }
 
-ion-tabs > ion-tab-bar > ion-tab-button {
+ion-tab-bar > ion-tab-button {
   color: white;
 }

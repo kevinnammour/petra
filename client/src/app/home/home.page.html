@@ -5,7 +5,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content scrollY="false">
+<ion-content>
   <div class="container">
     <h1>Find your next trip</h1>
     <app-input type="text" placeholder="Find the perfect trip!"></app-input>
@@ -13,34 +13,64 @@
 
     <swiper>
       <ng-template swiperSlide>
-        <div class="slide-container"><img src="assets/hiking.png" alt=""></div>
+        <div class="slide-container">
+          <img src="assets/hiking.png" alt="" /><span>Hiking</span>
+        </div>
       </ng-template>
       <ng-template swiperSlide>
-        <div class="slide-container"><img src="assets/paintball.png" alt=""></div>
+        <div class="slide-container">
+          <img src="assets/paintball.png" alt="" /><span>Paintball</span>
+        </div>
       </ng-template>
       <ng-template swiperSlide>
-        <div class="slide-container"><img src="assets/atv.png" alt=""></div>
+        <div class="slide-container">
+          <img src="assets/atv.png" alt="" /><span>ATV</span>
+        </div>
       </ng-template>
       <ng-template swiperSlide>
-        <div class="slide-container"><img src="assets/kayaking.png" alt=""></div>
+        <div class="slide-container">
+          <img src="assets/kayaking.png" alt="" /><span>Kayaking</span>
+        </div>
       </ng-template>
     </swiper>
 
+    <h4>What about travelling?</h4>
+
+    <swiper>
+      <ng-template swiperSlide>
+        <div class="slide-container">
+          <img src="assets/greece.png" alt="" /><span>Athens, Greece</span>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slide-container">
+          <img src="assets/indonesia.png" alt="" /><span>Bali, Indonesia</span>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slide-container">
+          <img src="assets/lebanon.png" alt="" /><span>Beirut, Lebanon</span>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="slide-container">
+          <img src="assets/italy.png" alt="" /><span>Rome, Italy</span>
+        </div>
+      </ng-template>
+    </swiper>
   </div>
 </ion-content>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom" color="primary">
-    <ion-tab-button tab="schedule">
-      <ion-icon name="home"></ion-icon>
-    </ion-tab-button>
+<ion-tab-bar slot="bottom" color="primary">
+  <ion-tab-button tab="home">
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
 
-    <ion-tab-button tab="speakers">
-      <ion-icon name="map-outline"></ion-icon>
-    </ion-tab-button>
+  <ion-tab-button tab="map">
+    <ion-icon name="map-outline"></ion-icon>
+  </ion-tab-button>
 
-    <ion-tab-button tab="about">
-      <ion-icon name="person-outline"></ion-icon>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+  <ion-tab-button tab="account">
+    <ion-icon name="person-outline"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>

@@ -13,7 +13,6 @@
         while ($user = $result->fetch_assoc()) {
             $response = $user;
         }
-        $response['status'] = 200;
     } catch (mysqli_sql_exception $e) {
         // Unknown error
         $response = array('status' => 500);

@@ -6,7 +6,7 @@
         $params = json_decode(file_get_contents("php://input"));
 
         // Sanitizing data
-        $full_name = htmlspecialchars(strip_tags($params->full_name));
+        $fullname = htmlspecialchars(strip_tags($params->fullname));
         $username = htmlspecialchars(strip_tags($params->username));
         $email = htmlspecialchars(strip_tags($params->email));
         $password = htmlspecialchars(strip_tags($params->password));
@@ -14,7 +14,7 @@
         $hash = password_hash($password, PASSWORD_BCRYPT, array('cost' => 11));
 
         $query = $mysqli->prepare('INSERT INTO users (full_name, username, email, password) VALUES (?, ?, ?, ?)');
-        $query->bind_param('ssss', $full_name, $username, $email, $hash);
+        $query->bind_param('ssss', $fullname, $username, $email, $hash);
 
         try {
             $query->execute();

@@ -2,6 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import {
+  AlertController,
+  LoadingController,
+  ToastController,
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -9,12 +15,14 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
+  signupUrl = 'http://localhost/petra/server/apis/auth/signup.php';
+
   registerForm = new FormGroup({
-    fullName: new FormControl('', [
+    fullname: new FormControl('', [
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(20),
-      Validators.pattern(/^[A-Za-z]+$/),
+      Validators.pattern(/^[a-zA-Z\s]*$/),
     ]),
     username: new FormControl('', [
       Validators.required,
@@ -28,8 +36,10 @@ export class SignupPage implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
-    ])
+      Validators.pattern(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      ),
+    ]),
   });
 
   // Password rules:
@@ -39,7 +49,13 @@ export class SignupPage implements OnInit {
   // At least one special character, (?=.*?[#?!@$%^&*-])
   // Minimum eight in length .{8,} (with the anchors)
 
-  constructor(private route: Router) {}
+  constructor(
+    private route: Router,
+    private http: HttpClient,
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController,
+    private loadingCtrl: LoadingController
+  ) {}
 
   goToLandingPage() {
     this.route.navigate(['landing']);
@@ -47,6 +63,32 @@ export class SignupPage implements OnInit {
 
   goToLoginPage() {
     this.route.navigate(['login']);
+  }
+
+  async onRegister() {
+    const loading = await this.loadingCtrl.create({
+      message: `Registering...`,
+    });
+    await loading.present();
+    this.http.post(`${this.signupUrl}`, this.registerForm.value).subscribe(
+      async () => {
+        const toast = await this.toastCtrl.create({
+          message: `Account created`,
+          duration: 2500,
+          color: 'primary',
+        });
+        await toast.present();
+        loading.dismiss();
+        this.registerForm.reset();
+      },
+      async () => {
+        const alert = await this.alertCtrl.create({
+          message: `Account creation failure!`,
+        });
+        await alert.present();
+        loading.dismiss();
+      }
+    );
   }
 
   ngOnInit() {}

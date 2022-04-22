@@ -34,6 +34,24 @@ ion-content {
       padding-left: 5%;
       padding-right: 5%;
 
+      ion-item.ion-margin-bottom {
+        border-radius: 50px;
+        height: 50px;
+        box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+        --highlight-height: 0px;
+
+        ion-input {
+          --padding-top: 13.25px;
+          --padding-bottom: 20px;
+          --padding-start: 13.25px;
+          --placeholder-color: white;
+          width: 60%;
+          font-family: "Poppins";
+          font-size: 90%;
+        }
+      }
+
+
       ion-button {
         display: flex;
         margin: auto;

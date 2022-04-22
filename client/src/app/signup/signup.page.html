@@ -15,13 +15,22 @@
       <h1>Petra</h1>
     </div>
 
-    <form id="form">
-      <app-input type="text" placeholder="Full name"></app-input>
-      <app-input type="text" placeholder="Username"></app-input>
-      <app-input type="text" placeholder="Email"></app-input>
-      <app-input type="password" placeholder="Password"></app-input>
-      <ion-button size="large" shape="round"
-        ><span>Create account</span></ion-button
+    <form id="form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+      <ion-item class="ion-margin-bottom" color="primary">
+        <ion-input type="text" placeholder="Full name" formControlName="fullname"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom" color="primary">
+        <ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom" color="primary">
+        <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom" color="primary">
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <ion-button type="submit" size="large" shape="round"
+        [disabled]="registerForm.invalid"><span>Create account</span></ion-button
       >
     </form>
 

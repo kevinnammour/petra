@@ -10,6 +10,8 @@ import { InputModule } from '../components/input/input.module';
 import { SwiperModule } from 'swiper/angular';
 import { SearchModalComponent } from '../components/search-modal/search-modal.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
     IonicModule,
     InputModule,
     SwiperModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientModule,
   ],
   declarations: [HomePage, SearchModalComponent],
   entryComponents: [SearchModalComponent]

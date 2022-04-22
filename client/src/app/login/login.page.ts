@@ -46,11 +46,8 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingCtrl.create({ message: 'Logging in...' });
     await loading.present();
 
-    this.http
-      .post<{ token: string }>(`${this.loginUrl}`, this.loginForm.value)
-      .pipe(map((response) => response.token)).subscribe(
-        async token => {
-          localStorage.setItem('token', token);
+    this.http.post(`${this.loginUrl}`, this.loginForm.value).subscribe(
+        async () => {
           loading.dismiss();
           this.route.navigate(['home']);
         },

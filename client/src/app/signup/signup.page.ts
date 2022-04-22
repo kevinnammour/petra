@@ -65,13 +65,14 @@ export class SignupPage implements OnInit {
     this.route.navigate(['login']);
   }
 
-  async onRegister() {
+  async register() {
     const loading = await this.loadingCtrl.create({
       message: `Registering...`,
     });
     await loading.present();
     this.http.post(`${this.signupUrl}`, this.registerForm.value).subscribe(
       async () => {
+        // check the status code in here
         const toast = await this.toastCtrl.create({
           message: `Account created`,
           duration: 2500,
@@ -80,6 +81,7 @@ export class SignupPage implements OnInit {
         await toast.present();
         loading.dismiss();
         this.registerForm.reset();
+        this.route.navigate(['login']);
       },
       async () => {
         const alert = await this.alertCtrl.create({

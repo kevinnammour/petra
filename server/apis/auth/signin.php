@@ -8,7 +8,7 @@
         $params = json_decode(file_get_contents("php://input"));
 
         // Sanitizing data
-        $email_or_username = htmlspecialchars(strip_tags($params->email_or_username));
+        $email_or_username = htmlspecialchars(strip_tags($params->emailorusername));
         $password = htmlspecialchars(strip_tags($params->password));
 
         $query;

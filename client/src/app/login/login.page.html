@@ -15,13 +15,20 @@
       <h1>Petra</h1>
     </div>
 
-    <form id="form">
-      <app-input type="text" placeholder="Email or username"></app-input>
-      <app-input type="password" placeholder="Password"></app-input>
-      <a class="login__anchor-forgotpass" href="#">Forgot password?</a>
-      <ion-button size="large" shape="round" (click)="goToHomePage()"
-        ><span>Login</span><ion-icon name="log-in"></ion-icon
-      ></ion-button>
+    <form id="form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-item class="ion-margin-bottom" color="primary">
+      <ion-input type="text" placeholder="Email or username" formControlName="emailorusername"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom" color="primary">
+      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+
+      <!-- <a class="login__anchor-forgotpass" href="#">Forgot password?</a> -->
+      <ion-button size="large" shape="round" type="submit" [disabled]="loginForm.invalid">
+        <span>Login</span>
+        <ion-icon name="log-in"></ion-icon>
+      </ion-button>
     </form>
 
     <a

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { SignupPage } from './signup.page';
-import { InputModule } from '../components/input/input.module';
 
 import {HttpClientModule} from '@angular/common/http';
 
@@ -17,7 +16,6 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    InputModule,
     SignupPageRoutingModule,
     HttpClientModule,
   ],

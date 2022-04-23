@@ -15,7 +15,7 @@
       <h1>Petra</h1>
     </div>
 
-    <form id="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form id="form" [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
       <ion-item class="ion-margin-bottom" color="primary">
         <ion-input type="text" placeholder="Full name" formControlName="fullname"></ion-input>
       </ion-item>

@@ -46,16 +46,23 @@ export class LoginPage implements OnInit {
     const loading = await this.loadingCtrl.create({ message: 'Logging in...' });
     await loading.present();
 
-    this.http.post(`${this.loginUrl}`, this.loginForm.value).subscribe(
-        async () => {
+    this.http
+      .post<{ token: string }>(`${this.loginUrl}`, this.loginForm.value)
+      .pipe(map((response) => response.token))
+      .subscribe(
+        async (token) => {
+          localStorage.setItem('token', token);
           loading.dismiss();
           this.route.navigate(['home']);
         },
         async () => {
-          const alert = await this.alertCtrl.create({message: 'Login Failed', buttons: ['OK']});
+          const alert = await this.alertCtrl.create({
+            message: 'Login Failed',
+            buttons: ['OK'],
+          });
           await alert.present();
           loading.dismiss();
-        },
+        }
       );
   }
 

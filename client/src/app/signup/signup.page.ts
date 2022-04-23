@@ -2,12 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import {
   AlertController,
   LoadingController,
   ToastController,
 } from '@ionic/angular';
+import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +15,6 @@ import {
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  signupUrl = 'http://localhost/petra/server/apis/auth/signup.php';
 
   registerForm = new FormGroup({
     fullname: new FormControl('', [
@@ -51,7 +50,7 @@ export class SignupPage implements OnInit {
 
   constructor(
     private route: Router,
-    private http: HttpClient,
+    private signupService: SignupService,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController
@@ -65,12 +64,12 @@ export class SignupPage implements OnInit {
     this.route.navigate(['login']);
   }
 
-  async register() {
+  async onRegisterSubmit() {
     const loading = await this.loadingCtrl.create({
       message: `Registering...`,
     });
     await loading.present();
-    this.http.post(`${this.signupUrl}`, this.registerForm.value).subscribe(
+    this.signupService.register(this.registerForm.value).subscribe(
       async () => {
         // check the status code in here
         const toast = await this.toastCtrl.create({

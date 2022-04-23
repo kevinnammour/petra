@@ -12,7 +12,7 @@
   <div class="container">
     <!-- <button ion-button [disabled]="!Form.form.valid || rating === 0" ion-button full color="secondary" >Save</button> -->
 
-    <form id="form" [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+    <form id="form">
       <ion-item class="ion-margin-bottom" color="primary">
         <ion-input type="text" placeholder="Country, city" formControlName="location"></ion-input>
       </ion-item>
@@ -21,7 +21,6 @@
         <h4>Budget in $</h4>
         <span>Minimum</span>
         <ion-range
-          formControlName="min"
           class="cust-range"
           debounce="500"
           min="0"
@@ -35,7 +34,6 @@
         </ion-range>
         <span>Maximum</span>
         <ion-range
-          formControlName="max"
           class="cust-range"
           debounce="500"
           min="0"
@@ -51,7 +49,7 @@
       <hr />
       <div class="activities">
         <h4>Activities</h4>
-        <ion-select multiple="true" value="all" formControlName="activities">
+        <ion-select multiple="true" value="all">
           <ion-select-option value="hiking">Hiking</ion-select-option>
           <ion-select-option value="atv">ATV</ion-select-option>
           <ion-select-option value="paintball">Paintball</ion-select-option>

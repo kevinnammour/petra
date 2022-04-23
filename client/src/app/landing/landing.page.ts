@@ -10,7 +10,7 @@ export class LandingPage implements OnInit {
   constructor(private route: Router) {}
 
   goToLoginPage() {
-    this.route.navigate(['/login']);
+    this.route.navigate(['/signin']);
   }
 
   goToSignUpPage() {

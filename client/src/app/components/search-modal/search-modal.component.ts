@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -11,12 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-modal.component.scss'],
 })
 export class SearchModalComponent implements OnInit {
-  searchForm = new FormGroup({
-    location: new FormControl('', [Validators.required]),
-    min: new FormControl('', [Validators.required]),
-    max: new FormControl('', [Validators.required]),
-    activities: new FormControl('', [Validators.required]),
-  });
+  // searchForm = new FormGroup({
+  //   location: new FormControl('', [Validators.required]),
+  //   min: new FormControl('', [Validators.required]),
+  //   max: new FormControl('', [Validators.required]),
+  //   activities: new FormControl('', [Validators.required]),
+  // });
 
   constructor(
     private modalCtrl: ModalController,
@@ -27,18 +26,6 @@ export class SearchModalComponent implements OnInit {
   closeModal() {
     this.modalCtrl.dismiss();
   }
-
-  async onSearchSubmit() {
-    console.log(this.searchForm.value);
-    // this.http.get('http://localhost/petra/server/apis/auth/signup.php', this.searchFrom.value).subscribe(
-    //   async (res) => {
-    //     console.log(res);
-    //   },
-    //   async () => {
-    //     console.log();
-    //   }
-    // );
-  };
 
   ngOnInit() {}
 }

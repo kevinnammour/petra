@@ -8,7 +8,7 @@ import { SignupPageRoutingModule } from './signup-routing.module';
 
 import { SignupPage } from './signup.page';
 
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,6 +19,6 @@ import {HttpClientModule} from '@angular/common/http';
     SignupPageRoutingModule,
     HttpClientModule,
   ],
-  declarations: [SignupPage]
+  declarations: [SignupPage],
 })
 export class SignupPageModule {}

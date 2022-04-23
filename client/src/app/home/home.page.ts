@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { SearchModalComponent } from '../components/search-modal/search-modal.component';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +12,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomePage {
   constructor(private modalCtrl: ModalController, private http: HttpClient) {}
 
-  // getData() {
+  getUserData() {
+    const token = localStorage.getItem('token');
 
-  //   // this.http
-  //   //   .get(`http://localhost/petra/server/apis/account/get_pii.php`)
-  //   //   .subscribe(console.log);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
 
-  //   this.http.get(
-  //       'http://localhost/petra/server/apis/account/get_pii.php',
-  //       {responseType: 'text'}).subscribe(console.log);
-  // }
+    this.http.post('http://localhost/petra/server/apis/account/test.php', 'body', {headers}).subscribe(console.log);
+  }
 
   async openModal() {
     const modal = await this.modalCtrl.create({

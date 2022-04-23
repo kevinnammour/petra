@@ -12,19 +12,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HomePage {
   constructor(private modalCtrl: ModalController, private http: HttpClient) {}
 
-  getData() {
-    const token = localStorage.getItem('token');
-    console.log(token);
-    const headers = new HttpHeaders({
-      Authorization: token,
-    });
+  // getData() {
 
-    this.http
-      .get(`http://localhost/petra/server/apis/account/get_pii.php`, {
-        headers,
-      })
-      .subscribe(console.log);
-  }
+  //   // this.http
+  //   //   .get(`http://localhost/petra/server/apis/account/get_pii.php`)
+  //   //   .subscribe(console.log);
+
+  //   this.http.get(
+  //       'http://localhost/petra/server/apis/account/get_pii.php',
+  //       {responseType: 'text'}).subscribe(console.log);
+  // }
 
   async openModal() {
     const modal = await this.modalCtrl.create({

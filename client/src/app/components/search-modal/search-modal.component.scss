@@ -83,5 +83,26 @@ ion-content {
         font-weight: normal;
       }
     }
+
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 20px;
+
+      ion-button {
+        display: flex;
+        margin: auto;
+        height: 45px;
+        border-radius: 50px;
+        box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+        font-family: "Poppins";
+        font-weight: normal;
+        text-transform: none;
+        font-size: 90%;
+        width: 45%;
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 <?php
     require __DIR__ . '/../../config/database.php';
-    include_once __DIR__ . '/../../config/cors.php';
+    require __DIR__ . '/../../config/cors.php';
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $params = json_decode(file_get_contents("php://input"));

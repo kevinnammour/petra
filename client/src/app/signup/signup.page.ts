@@ -7,7 +7,9 @@ import {
   LoadingController,
   ToastController,
 } from '@ionic/angular';
-import { SignupService } from './signup.service';
+import { HttpClient } from '@angular/common/http';
+
+// import { SignupService } from './signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -50,7 +52,8 @@ export class SignupPage implements OnInit {
 
   constructor(
     private route: Router,
-    private signupService: SignupService,
+    // private signupService: SignupService,
+    private http: HttpClient,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController
@@ -69,7 +72,8 @@ export class SignupPage implements OnInit {
       message: `Registering...`,
     });
     await loading.present();
-    this.signupService.register(this.registerForm.value).subscribe(
+
+    this.http.post('http://localhost/petra/server/apis/auth/signup.php', this.registerForm.value).subscribe(
       async () => {
         // check the status code in here
         const toast = await this.toastCtrl.create({

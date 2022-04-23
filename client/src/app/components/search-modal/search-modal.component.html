@@ -10,73 +10,63 @@
 
 <ion-content>
   <div class="container">
-    <ion-item class="ion-margin-bottom" color="primary">
-      <ion-input type="text" placeholder="Enter country or city!"></ion-input>
-    </ion-item>
+    <!-- <button ion-button [disabled]="!Form.form.valid || rating === 0" ion-button full color="secondary" >Save</button> -->
 
-    <h1>Advanced Filters</h1>
-    <div class="budget">
-      <h4>Budget in $</h4>
-      <span>Minimum</span>
-      <ion-range
-        class="cust-range"
-        debounce="500"
-        min="0"
-        max="100"
-        pin="true"
-        snaps="true"
-        step="1"
-        ticks="false"
-        color="primary"
-      >
-      </ion-range>
-      <span>Maximum</span>
-      <ion-range
-        class="cust-range"
-        debounce="500"
-        min="0"
-        max="100"
-        pin="true"
-        snaps="true"
-        step="1"
-        ticks="false"
-        color="primary"
-      >
-      </ion-range>
-    </div>
-    <hr />
-    <div class="weather">
-      <h4>Weather</h4>
-      <ion-select multiple="true" value="all">
-        <ion-select-option value="hiking">Sunny</ion-select-option>
-        <ion-select-option value="atv">Cloudy</ion-select-option>
-        <ion-select-option value="paintball">Rainy</ion-select-option>
-        <ion-select-option value="kayaking">Snowy</ion-select-option>
-        <ion-select-option value="all">All</ion-select-option>
-      </ion-select>
-    </div>
-    <hr />
-    <div class="activities">
-      <h4>Activities</h4>
-      <ion-select multiple="true" value="all">
-        <ion-select-option value="hiking">Hiking</ion-select-option>
-        <ion-select-option value="atv">ATV</ion-select-option>
-        <ion-select-option value="paintball">Paintball</ion-select-option>
-        <ion-select-option value="kayaking">Kayaking</ion-select-option>
-        <ion-select-option value="biking">Biking</ion-select-option>
-        <ion-select-option value="skydiving">Skydiving</ion-select-option>
-        <ion-select-option value="all">All</ion-select-option>
-      </ion-select>
-    </div>
+    <form id="form" [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+      <ion-item class="ion-margin-bottom" color="primary">
+        <ion-input type="text" placeholder="Country, city" formControlName="location"></ion-input>
+      </ion-item>
+      <h1>Advanced Filters</h1>
+      <div class="budget">
+        <h4>Budget in $</h4>
+        <span>Minimum</span>
+        <ion-range
+          formControlName="min"
+          class="cust-range"
+          debounce="500"
+          min="0"
+          max="100"
+          pin="true"
+          snaps="true"
+          step="1"
+          ticks="false"
+          color="primary"
+        >
+        </ion-range>
+        <span>Maximum</span>
+        <ion-range
+          formControlName="max"
+          class="cust-range"
+          debounce="500"
+          min="0"
+          max="100"
+          pin="true"
+          snaps="true"
+          step="1"
+          ticks="false"
+          color="primary"
+        >
+        </ion-range>
+      </div>
+      <hr />
+      <div class="activities">
+        <h4>Activities</h4>
+        <ion-select multiple="true" value="all" formControlName="activities">
+          <ion-select-option value="hiking">Hiking</ion-select-option>
+          <ion-select-option value="atv">ATV</ion-select-option>
+          <ion-select-option value="paintball">Paintball</ion-select-option>
+          <ion-select-option value="kayaking">Kayaking</ion-select-option>
+          <ion-select-option value="biking">Biking</ion-select-option>
+          <ion-select-option value="skydiving">Skydiving</ion-select-option>
+          <ion-select-option value="all">All</ion-select-option>
+        </ion-select>
+      </div>
 
-    <div class="btns">
-      <ion-button size="large" shape="round">
-        <span>Clear</span>
-      </ion-button>
-
-      <ion-button size="large" shape="round">
-        <span>Search</span>
-      </ion-button>
-    </div>
+      <div class="btns">
+        <ion-button size="large" shape="round" type="submit">
+          <span>Search</span>
+        </ion-button>
+      </div>
+    </form>
   </div>
 </ion-content>

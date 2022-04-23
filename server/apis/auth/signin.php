@@ -1,6 +1,6 @@
 <?php
     require __DIR__ . '/../../config/database.php';
-    include_once __DIR__ . '/../../config/cors.php';
+    require __DIR__ . '/../../config/cors.php';
 
     use \Firebase\JWT\JWT;
 

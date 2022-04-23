@@ -1,15 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+// import { Injectable } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+// export interface User {
+//   fullname: string;
+//   username: string;
+//   email: string;
+//   password: string;
+// }
 
-export class SignupService {
-  private signupUrl = 'http://localhost/petra/server/apis/auth/signup.php';
-  constructor(private http: HttpClient) {}
+// @Injectable({
+//   providedIn: 'root'
+// })
 
-  register(user: any) {
-    return this.http.post(`${this.signupUrl}`, user);
-  }
-}
+// export class SignupService {
+//   private signupUrl = 'http://localhost/petra/server/apis/auth/signup.php';
+//   constructor(private http: HttpClient) {}
+
+//   register(user: User) {
+//     return this.http.post(`${this.signupUrl}`, user);
+//   }
+// }

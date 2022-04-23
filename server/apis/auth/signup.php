@@ -1,4 +1,5 @@
 <?php
+    // header('Access-Control-Allow-Origin: *');
     require __DIR__ . '/../../config/database.php';
     require __DIR__ . '/../../config/cors.php';
 

@@ -10,7 +10,13 @@
 
 <ion-content>
   <div class="container">
-
-
+    <div class="activities" *ngIf="activities !== null">
+      <div button class="activity" button *ngFor="let activity of activities">
+        <img src="https://pixabay.com/get/gd2411f1799d4c58be54aabfc53c1f34ddedcc16420ee8a8bf524bb15a672ec65a14785c7ed0c37878966f54134a5d535664fa6aca5754774edbcd1bd59a3e67d_640.jpg" alt="">
+        <p class="category">{{activity.category}}</p>
+        <p class="location"><ion-icon name="location-sharp"></ion-icon>{{activity.location}}</p>
+        <p class="price">${{activity.price}} / person</p>
+      </div>
+    </div>
   </div>
 </ion-content>

@@ -9,6 +9,7 @@ import { ActivitiesService } from 'app/apis/activities.service';
   styleUrls: ['./activities.page.scss'],
 })
 export class ActivitiesPage implements OnInit {
+  activities: any[] = [];
   constructor(
     private router: Router,
     private activitiesService: ActivitiesService,
@@ -24,13 +25,14 @@ export class ActivitiesPage implements OnInit {
       min: localStorage.getItem('min'),
       max: localStorage.getItem('max'),
       location: localStorage.getItem('location'),
-      activities: localStorage.getItem('activities'),
+      categories: localStorage.getItem('activities'),
     };
-
-    console.log(filters);
 
     this.http
       .get('http://localhost/petra/server/apis/home/search.php', {params: filters})
-      .subscribe(console.log);
+      .subscribe((res: any) => {
+        this.activities = res;
+        console.log(this.activities);
+      });
   }
 }

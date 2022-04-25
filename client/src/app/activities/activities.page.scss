@@ -10,5 +10,45 @@ ion-content {
   .container {
     width: calc(100% - 10%);
     margin: 20px auto 0px auto;
+
+    div.activity {
+      height: auto;
+      background-color: white;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      box-sizing: border-box;
+      border-radius: 20px;
+      margin-bottom: 50px;
+      padding: 15px;
+
+      img {
+        width: 100%;
+        border-radius: 20px;
+        height: auto;
+      }
+
+      .category {
+        font-family: "Poppins";
+        color: var(--ion-color-secondary);
+        font-weight: bold;
+        font-size: 100%;
+      }
+
+      .location {
+        font-family: "Poppins";
+        color: var(--ion-color-secondary);
+        font-weight: normal;
+        font-size: 100%;
+        ion-icon {
+          vertical-align: baseline;
+        }
+      }
+
+      .price {
+        font-family: "Poppins";
+        color: var(--ion-color-secondary);
+        font-weight: normal;
+        font-size: 90%;
+      }
+    }
   }
 }

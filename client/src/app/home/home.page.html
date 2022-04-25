@@ -8,7 +8,11 @@
 <ion-content>
   <div class="container">
     <h1>Find your next trip</h1>
-    <app-input (click)="openModal()" type="text" placeholder="Find the perfect trip!"></app-input>
+    <ion-button (click)="search()">
+      <span>Find the perfect trip!</span>
+      <ion-icon name="search-outline"></ion-icon>
+    </ion-button>
+
     <h4>Explore activities</h4>
 
     <swiper>
@@ -58,8 +62,6 @@
         </div>
       </ng-template>
     </swiper>
-
-    <ion-button (click)="getUserData()">Testing</ion-button>
   </div>
 </ion-content>
 

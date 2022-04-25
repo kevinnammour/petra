@@ -12,14 +12,26 @@ ion-content {
     margin: 20px auto 0px auto;
 
     hr {
-      margin-top: 2rem;
+      margin-top: 1rem;
       margin-bottom: 2rem;
       border: 0;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     #form {
-      ion-item {
+      ion-searchbar {
+        width: 100%;
+        padding: 0;
+        font-family: "Poppins";
+        font-size: 90%;
+      }
+
+      ion-item.search-result {
+        font-family: "Poppins";
+        font-size: 90%;
+      }
+
+      ion-item.nums {
         border-radius: 50px;
         height: 50px;
         box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
@@ -41,8 +53,8 @@ ion-content {
         font-family: "Poppins";
         font-weight: bold;
         color: var(--ion-color-secondary);
-        margin-top: 40px;
-        margin-bottom: 40px;
+        margin-top: 30px;
+        margin-bottom: 10px;
       }
 
       h4 {
@@ -62,7 +74,7 @@ ion-content {
           color: var(--ion-color-secondary);
         }
 
-        ion-range {
+        ion-input {
           font-family: "Poppins";
         }
       }

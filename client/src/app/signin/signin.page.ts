@@ -45,6 +45,7 @@ export class SigninPage implements OnInit {
       async (token) => {
         localStorage.setItem('token', token);
         loading.dismiss();
+        this.loginForm.reset();
         this.route.navigate(['home']);
       },
       async () => {
@@ -57,6 +58,5 @@ export class SigninPage implements OnInit {
       }
     );
   }
-
   ngOnInit() {}
 }

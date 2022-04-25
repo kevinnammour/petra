@@ -29,6 +29,27 @@ ion-content {
     width: calc(100% - 10%);
     margin: 20px auto 0px auto;
 
+    ion-button {
+      display: flex;
+      justify-content: space-evenly;
+      height: 45px;
+      border-radius: 50px;
+      box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+      font-family: "Poppins";
+      font-weight: normal;
+      width: 100%;
+      text-transform: none;
+      font-size: 90%;
+
+      span {
+        padding-right: 7.5px;
+      }
+
+      ion-icon {
+        padding-left: 7.5px;
+      }
+    }
+
     h1 {
       font-size: 130%;
       font-family: "Poppins";
@@ -58,10 +79,6 @@ ion-content {
       font-family: "Poppins";
       font-size: 100%;
       font-weight: bold;
-    }
-
-    ion-item {
-      --padding-start: 0;
     }
   }
 }

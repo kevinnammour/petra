@@ -50,7 +50,7 @@
                     http_response_code(401);
                 }
             }
-        } catch (mysqli_sql_exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
         }
     } else {

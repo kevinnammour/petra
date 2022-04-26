@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AccountService } from 'app/apis/account/account.service';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.page.html',
   styleUrls: ['./account.page.scss'],
 })
-export class AccountPage implements OnInit {
+export class AccountPage {
 
-  constructor() { }
+  constructor(private router: Router, private accountService: AccountService) { }
 
-  ngOnInit() {
+  goHome() {
+    this.router.navigate(['/home']);
   }
 
+  ionViewDidEnter() {
+    console.log('Hello');
+    this.accountService.getPersonalInformation().subscribe(console.log);
+  }
 }

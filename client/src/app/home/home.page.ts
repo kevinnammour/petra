@@ -25,4 +25,8 @@ export class HomePage {
   search() {
     this.router.navigate(['/search']);
   }
+
+  goAccount() {
+    this.router.navigate(['/account']);
+  }
 }

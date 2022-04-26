@@ -18,5 +18,9 @@
         <p class="price">${{activity.price}} / person</p>
       </div>
     </div>
+    <div class="no-content" *ngIf="activities === null">
+      <ion-icon name="sad-outline"></ion-icon>
+      <p>No trips found!</p>
+    </div>
   </div>
 </ion-content>

@@ -28,6 +28,8 @@ export class ActivitiesPage implements OnInit {
       categories: localStorage.getItem('activities'),
     };
 
+    console.log(filters);
+
     this.http
       .get('http://localhost/petra/server/apis/home/search.php', {params: filters})
       .subscribe((res: any) => {

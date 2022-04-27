@@ -21,7 +21,7 @@ export class SignupPage implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(20),
-      Validators.pattern(/^[a-zA-Z\s]*$/),
+      Validators.pattern(/^[\w'\-,.][^0-9_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/),
     ]),
     username: new FormControl('', [
       Validators.required,

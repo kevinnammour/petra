@@ -13,10 +13,13 @@ export class PiiPagePage {
   fullname = null;
   username = null;
   email = null;
-  dob = null;
   country = null;
   gender = null;
-  constructor(private router: Router, private accountService: AccountService, private alertCtrl: AlertController) {}
+  constructor(
+    private router: Router,
+    private accountService: AccountService,
+    private alertCtrl: AlertController
+  ) {}
 
   returnAccountPage() {
     this.router.navigate(['/account']);
@@ -43,6 +46,28 @@ export class PiiPagePage {
   }
 
   async savePii(form: NgForm) {
-    console.log(form.value);
+    if (
+      form.value.fullname === this.fullname &&
+      form.value.country === this.country &&
+      form.value.gender === this.gender
+    ) {
+      const alert = await this.alertCtrl.create({
+        message: 'No changes were detected.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+    } else if (
+      !form.value.fullname.match(
+        /^[\w'\-,.][^0-9_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/
+      )
+    ) {
+      const alert = await this.alertCtrl.create({
+        message: 'Full name structure is invalid.',
+        buttons: ['OK'],
+      });
+      await alert.present();
+    } else {
+      this.accountService.savePersonalInformation();
+    }
   }
 }

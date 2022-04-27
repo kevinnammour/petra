@@ -22,4 +22,17 @@ export class AccountService {
       {headers}
     );
   }
+
+  savePersonalInformation() {
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get(
+      `${this.proxy}/get_pii.php`,
+      {headers}
+    );
+  }
 }

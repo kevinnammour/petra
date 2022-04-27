@@ -20,14 +20,12 @@ try {
                 http_response_code(401);
                 echo json_encode(array('message' => 'User not authorized.'));
             }
-
             $params = json_decode(file_get_contents("php://input"));
-
             $full_name = htmlspecialchars(strip_tags($params->fullname));
             $country = htmlspecialchars(strip_tags($params->country));
             $gender = htmlspecialchars(strip_tags($params->gender));
 
-            if($full_name==null || $country==null || $gender==null) {
+            if ($user_id == null || $full_name == null || $country == null || $gender == null) {
                 // Not found (if some fields are missing)
                 http_response_code(404);
                 echo json_encode(array('message' => 'Some fields are missing.'));

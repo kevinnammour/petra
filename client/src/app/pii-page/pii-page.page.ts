@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { AccountService } from 'app/apis/account/account.service';
 
 @Component({
@@ -18,7 +18,8 @@ export class PiiPagePage {
   constructor(
     private router: Router,
     private accountService: AccountService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) {}
 
   returnAccountPage() {
@@ -67,7 +68,24 @@ export class PiiPagePage {
       });
       await alert.present();
     } else {
-      this.accountService.savePersonalInformation();
+      this.accountService.savePersonalInformation(form.value).subscribe(
+        async (result: any) => {
+          const toast = await this.toastCtrl.create({
+            message: result.message,
+            duration: 3000,
+            color: 'primary',
+          });
+          await toast.present();
+        },
+        async (error) => {
+          const toast = await this.toastCtrl.create({
+            message: 'Something went wrong, please try again.',
+            duration: 3000,
+            color: 'primary',
+          });
+          await toast.present();
+        }
+      );
     }
   }
 }

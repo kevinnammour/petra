@@ -17,22 +17,17 @@ export class AccountService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(
-      `${this.proxy}/get_pii.php`,
-      {headers}
-    );
+    return this.http.get(`${this.proxy}/get_pii.php`, { headers });
   }
 
-  savePersonalInformation() {
+  savePersonalInformation(pii: any) {
+    console.log(pii);
     const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get(
-      `${this.proxy}/get_pii.php`,
-      {headers}
-    );
+    return this.http.put(`${this.proxy}/put_pii.php`, pii, { headers });
   }
 }

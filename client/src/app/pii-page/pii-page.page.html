@@ -1,0 +1,224 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="returnAccountPage()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div id="profile-picture-container">
+      <img id="profile-picture" src="assets/profile.png" alt="" />
+      <div id="camera-container">
+        <ion-icon id="change-profile-picture" name="camera"></ion-icon>
+      </div>
+    </div>
+
+    <form id="pii" #f="ngForm" (ngSubmit)="savePii(f)">
+      <ion-item>
+        <ion-label position="floating" color="primary">Full name</ion-label>
+        <ion-input type="text" value="" color="secondary" readonly="true" [value]="fullname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Username</ion-label>
+        <ion-input type="text" value="" color="secondary" readonly="true" [value]="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Email</ion-label>
+        <ion-input type="email" value="" color="secondary" readonly="true" [value]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary" name="country" ngModel>Country</ion-label>
+        <ion-select value="">
+          <ion-select-option value="afghanistan">Afghanistan</ion-select-option>
+          <ion-select-option value="albania">Albania</ion-select-option>
+          <ion-select-option value="algeria">Algeria</ion-select-option>
+          <ion-select-option value="andorra">Andorra</ion-select-option>
+          <ion-select-option value="angola">Angola</ion-select-option>
+          <ion-select-option value="antigua & deps">Antigua & Deps</ion-select-option>
+          <ion-select-option value="argentina">Argentina</ion-select-option>
+          <ion-select-option value="armenia">Armenia</ion-select-option>
+          <ion-select-option value="australia">Australia</ion-select-option>
+          <ion-select-option value="austria">Austria</ion-select-option>
+          <ion-select-option value="azerbaijan">Azerbaijan</ion-select-option>
+          <ion-select-option value="bahamas">Bahamas</ion-select-option>
+          <ion-select-option value="bahrain">Bahrain</ion-select-option>
+          <ion-select-option value="bangladesh">Bangladesh</ion-select-option>
+          <ion-select-option value="barbados">Barbados</ion-select-option>
+          <ion-select-option value="belarus">Belarus</ion-select-option>
+          <ion-select-option value="belgium">Belgium</ion-select-option>
+          <ion-select-option value="belize">Belize</ion-select-option>
+          <ion-select-option value="benin">Benin</ion-select-option>
+          <ion-select-option value="bhutan">Bhutan</ion-select-option>
+          <ion-select-option value="bolivia">Bolivia</ion-select-option>
+          <ion-select-option value="bosnia herzegovina">Bosnia Herzegovina</ion-select-option>
+          <ion-select-option value="botswana">Botswana</ion-select-option>
+          <ion-select-option value="brazil">Brazil</ion-select-option>
+          <ion-select-option value="brunei">Brunei</ion-select-option>
+          <ion-select-option value="bulgaria">Bulgaria</ion-select-option>
+          <ion-select-option value="burkina">Burkina</ion-select-option>
+          <ion-select-option value="burundi">Burundi</ion-select-option>
+          <ion-select-option value="cambodia">Cambodia</ion-select-option>
+          <ion-select-option value="cameroon">Cameroon</ion-select-option>
+          <ion-select-option value="canada">Canada</ion-select-option>
+          <ion-select-option value="cape verde">Cape Verde</ion-select-option>
+          <ion-select-option value="central african rep">Central African Rep</ion-select-option>
+          <ion-select-option value="chad">Chad</ion-select-option>
+          <ion-select-option value="chile">Chile</ion-select-option>
+          <ion-select-option value="china">China</ion-select-option>
+          <ion-select-option value="colombia">Colombia</ion-select-option>
+          <ion-select-option value="comoros">Comoros</ion-select-option>
+          <ion-select-option value="congo">Congo</ion-select-option>
+          <ion-select-option value="congo">Congo</ion-select-option>
+          <ion-select-option value="costa rica">Costa Rica</ion-select-option>
+          <ion-select-option value="croatia">Croatia</ion-select-option>
+          <ion-select-option value="cuba">Cuba</ion-select-option>
+          <ion-select-option value="cyprus">Cyprus</ion-select-option>
+          <ion-select-option value="czech republic">Czech Republic</ion-select-option>
+          <ion-select-option value="denmark">Denmark</ion-select-option>
+          <ion-select-option value="djibouti">Djibouti</ion-select-option>
+          <ion-select-option value="dominica">Dominica</ion-select-option>
+          <ion-select-option value="dominican republic">Dominican Republic</ion-select-option>
+          <ion-select-option value="east timor">East Timor</ion-select-option>
+          <ion-select-option value="ecuador">Ecuador</ion-select-option>
+          <ion-select-option value="egypt">Egypt</ion-select-option>
+          <ion-select-option value="el salvador">El Salvador</ion-select-option>
+          <ion-select-option value="equatorial guinea">Equatorial Guinea</ion-select-option>
+          <ion-select-option value="eritrea">Eritrea</ion-select-option>
+          <ion-select-option value="estonia">Estonia</ion-select-option>
+          <ion-select-option value="ethiopia">Ethiopia</ion-select-option>
+          <ion-select-option value="fiji">Fiji</ion-select-option>
+          <ion-select-option value="finland">Finland</ion-select-option>
+          <ion-select-option value="france">France</ion-select-option>
+          <ion-select-option value="gabon">Gabon</ion-select-option>
+          <ion-select-option value="gambia">Gambia</ion-select-option>
+          <ion-select-option value="georgia">Georgia</ion-select-option>
+          <ion-select-option value="germany">Germany</ion-select-option>
+          <ion-select-option value="ghana">Ghana</ion-select-option>
+          <ion-select-option value="greece">Greece</ion-select-option>
+          <ion-select-option value="grenada">Grenada</ion-select-option>
+          <ion-select-option value="guatemala">Guatemala</ion-select-option>
+          <ion-select-option value="guinea">Guinea</ion-select-option>
+          <ion-select-option value="guinea-bissau">Guinea-Bissau</ion-select-option>
+          <ion-select-option value="guyana">Guyana</ion-select-option>
+          <ion-select-option value="haiti">Haiti</ion-select-option>
+          <ion-select-option value="honduras">Honduras</ion-select-option>
+          <ion-select-option value="hungary">Hungary</ion-select-option>
+          <ion-select-option value="iceland">Iceland</ion-select-option>
+          <ion-select-option value="india">India</ion-select-option>
+          <ion-select-option value="indonesia">Indonesia</ion-select-option>
+          <ion-select-option value="iran">Iran</ion-select-option>
+          <ion-select-option value="iraq">Iraq</ion-select-option>
+          <ion-select-option value="ireland">Ireland Republic</ion-select-option>
+          <ion-select-option value="israel">Israel</ion-select-option>
+          <ion-select-option value="italy">Italy</ion-select-option>
+          <ion-select-option value="ivory coast">Ivory Coast</ion-select-option>
+          <ion-select-option value="jamaica">Jamaica</ion-select-option>
+          <ion-select-option value="japan">Japan</ion-select-option>
+          <ion-select-option value="jordan">Jordan</ion-select-option>
+          <ion-select-option value="kazakhstan">Kazakhstan</ion-select-option>
+          <ion-select-option value="kenya">Kenya</ion-select-option>
+          <ion-select-option value="kiribati">Kiribati</ion-select-option>
+          <ion-select-option value="korea north">Korea North</ion-select-option>
+          <ion-select-option value="korea south">Korea South</ion-select-option>
+          <ion-select-option value="kosovo">Kosovo</ion-select-option>
+          <ion-select-option value="kuwait">Kuwait</ion-select-option>
+          <ion-select-option value="kyrgyzstan">Kyrgyzstan</ion-select-option>
+          <ion-select-option value="laos">Laos</ion-select-option>
+          <ion-select-option value="latvia">Latvia</ion-select-option>
+          <ion-select-option value="lebanon">Lebanon</ion-select-option>
+          <ion-select-option value="lesotho">Lesotho</ion-select-option>
+          <ion-select-option value="liberia">Liberia</ion-select-option>
+          <ion-select-option value="libya">Libya</ion-select-option>
+          <ion-select-option value="liechtenstein">Liechtenstein</ion-select-option>
+          <ion-select-option value="lithuania">Lithuania</ion-select-option>
+          <ion-select-option value="luxembourg">Luxembourg</ion-select-option>
+          <ion-select-option value="macedonia">Macedonia</ion-select-option>
+          <ion-select-option value="madagascar">Madagascar</ion-select-option>
+          <ion-select-option value="malawi">Malawi</ion-select-option>
+          <ion-select-option value="malaysia">Malaysia</ion-select-option>
+          <ion-select-option value="maldives">Maldives</ion-select-option>
+          <ion-select-option value="mali">Mali</ion-select-option>
+          <ion-select-option value="malta">Malta</ion-select-option>
+          <ion-select-option value="marshall islands">Marshall Islands</ion-select-option>
+          <ion-select-option value="mauritania">Mauritania</ion-select-option>
+          <ion-select-option value="mauritius">Mauritius</ion-select-option>
+          <ion-select-option value="mexico">Mexico</ion-select-option>
+          <ion-select-option value="micronesia">Micronesia</ion-select-option>
+          <ion-select-option value="moldova">Moldova</ion-select-option>
+          <ion-select-option value="monaco">Monaco</ion-select-option>
+          <ion-select-option value="mongolia">Mongolia</ion-select-option>
+          <ion-select-option value="montenegro">Montenegro</ion-select-option>
+          <ion-select-option value="morocco">Morocco</ion-select-option>
+          <ion-select-option value="mozambique">Mozambique</ion-select-option>
+          <ion-select-option value="myanmar">Myanmar, Burma</ion-select-option>
+          <ion-select-option value="namibia">Namibia</ion-select-option>
+          <ion-select-option value="nauru">Nauru</ion-select-option>
+          <ion-select-option value="nepal">Nepal</ion-select-option>
+          <ion-select-option value="netherlands">Netherlands</ion-select-option>
+          <ion-select-option value="new zealand">New Zealand</ion-select-option>
+          <ion-select-option value="nicaragua">Nicaragua</ion-select-option>
+          <ion-select-option value="niger">Niger</ion-select-option>
+          <ion-select-option value="nigeria">Nigeria</ion-select-option>
+          <ion-select-option value="norway">Norway</ion-select-option>
+          <ion-select-option value="oman">Oman</ion-select-option>
+          <ion-select-option value="pakistan">Pakistan</ion-select-option>
+          <ion-select-option value="palau">Palau</ion-select-option>
+          <ion-select-option value="panama">Panama</ion-select-option>
+          <ion-select-option value="papua new guinea">Papua New Guinea</ion-select-option>
+          <ion-select-option value="paraguay">Paraguay</ion-select-option>
+          <ion-select-option value="peru">Peru</ion-select-option>
+          <ion-select-option value="philippines">Philippines</ion-select-option>
+          <ion-select-option value="poland">Poland</ion-select-option>
+          <ion-select-option value="portugal">Portugal</ion-select-option>
+          <ion-select-option value="qatar">Qatar</ion-select-option>
+          <ion-select-option value="romania">Romania</ion-select-option>
+          <ion-select-option value="russian federation">Russian Federation</ion-select-option>
+          <ion-select-option value="rwanda">Rwanda</ion-select-option>
+          <ion-select-option value="st kitts & nevis">St Kitts & Nevis</ion-select-option>
+          <ion-select-option value="st lucia">St Lucia</ion-select-option>
+          <ion-select-option value="saint vincent & the grenadines">Saint Vincent & the Grenadines</ion-select-option>
+          <ion-select-option value="samoa">Samoa</ion-select-option>
+          <ion-select-option value="san marino">San Marino</ion-select-option>
+          <ion-select-option value="sao tome & principe">Sao Tome & Principe</ion-select-option>
+          <ion-select-option value="saudi arabia">Saudi Arabia</ion-select-option>
+          <ion-select-option value="senegal">Senegal</ion-select-option>
+          <ion-select-option value="serbia">Serbia</ion-select-option>
+          <ion-select-option value="seychelles">Seychelles</ion-select-option>
+          <ion-select-option value="sierra leone">Sierra Leone</ion-select-option>
+          <ion-select-option value="singapore">Singapore</ion-select-option>
+          <ion-select-option value="slovakia">Slovakia</ion-select-option>
+          <ion-select-option value="slovenia">Slovenia</ion-select-option>
+          <ion-select-option value="solomon islands">Solomon Islands</ion-select-option>
+          <ion-select-option value="somalia">Somalia</ion-select-option>
+          <ion-select-option value="south africa">South Africa</ion-select-option>
+          <ion-select-option value="south sudan">South Sudan</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary" name="gender" ngModel>Gender</ion-label>
+        <ion-select>
+          <ion-select-option value="Male">Male</ion-select-option>
+          <ion-select-option value="Female">Female</ion-select-option>
+          <ion-select-option value="Transgender">Transgender</ion-select-option>
+          <ion-select-option value="Gender neutral">Gender neutral</ion-select-option>
+          <ion-select-option value="Non-binary">Non-binary</ion-select-option>
+          <ion-select-option value="Agender">Agender</ion-select-option>
+          <ion-select-option value="Pangender">Pangender</ion-select-option>
+          <ion-select-option value="Genderqueer">Genderqueer</ion-select-option>
+          <ion-select-option value="Two-spirit">Two-spirit</ion-select-option>
+          <ion-select-option value="Third gender">Third gender</ion-select-option>
+          <ion-select-option value="Other">Other</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div class="btns">
+        <ion-button size="large" shape="round" type="submit">
+          <span>Save</span>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

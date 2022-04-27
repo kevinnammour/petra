@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { AccountService } from 'app/apis/account/account.service';
 
 @Component({
@@ -8,15 +9,17 @@ import { AccountService } from 'app/apis/account/account.service';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage {
-
-  constructor(private router: Router, private accountService: AccountService) { }
+  constructor(
+    private router: Router,
+    private modalCtrl: ModalController,
+    private accountService: AccountService
+  ) {}
 
   goHome() {
     this.router.navigate(['/home']);
   }
 
-  ionViewDidEnter() {
-    console.log('Hello');
-    this.accountService.getPersonalInformation().subscribe(console.log);
+  goToPiiPage() {
+    this.router.navigate(['/pii-page']);
   }
 }

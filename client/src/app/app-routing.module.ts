@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'activities',
     loadChildren: () => import('./activities/activities.module').then( m => m.ActivitiesPageModule)
   },
+  {
+    path: 'pii-page',
+    loadChildren: () => import('./pii-page/pii-page.module').then( m => m.PiiPagePageModule)
+  },
 
 
 ];

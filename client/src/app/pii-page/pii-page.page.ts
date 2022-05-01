@@ -15,6 +15,10 @@ export class PiiPagePage {
   email = null;
   country = null;
   gender = null;
+  whatsapp = null;
+  instagram = null;
+  facebook = null;
+  tiktok = null;
   constructor(
     private router: Router,
     private accountService: AccountService,
@@ -29,12 +33,16 @@ export class PiiPagePage {
   ionViewDidEnter() {
     this.accountService.getPersonalInformation().subscribe(
       (result: any) => {
-        console.log(result);
+        // console.log(result);
         this.fullname = result.full_name;
         this.username = result.username;
         this.email = result.email;
         this.country = result.country;
         this.gender = result.gender;
+        this.whatsapp = result.whatsapp;
+        this.instagram = result.instagram;
+        this.facebook = result.facebook;
+        this.tiktok = result.tiktok;
       },
       async (error) => {
         const alert = await this.alertCtrl.create({
@@ -50,7 +58,11 @@ export class PiiPagePage {
     if (
       form.value.fullname === this.fullname &&
       form.value.country === this.country &&
-      form.value.gender === this.gender
+      form.value.gender === this.gender &&
+      form.value.whatsapp === this.whatsapp &&
+      form.value.facebook === this.facebook &&
+      form.value.instagram === this.instagram &&
+      form.value.tiktok === this.tiktok
     ) {
       const alert = await this.alertCtrl.create({
         message: 'No changes were detected.',
@@ -68,6 +80,7 @@ export class PiiPagePage {
       });
       await alert.present();
     } else {
+      console.log(form.value);
       this.accountService.savePersonalInformation(form.value).subscribe(
         async (result: any) => {
           const toast = await this.toastCtrl.create({
@@ -83,6 +96,7 @@ export class PiiPagePage {
             duration: 3000,
             color: 'primary',
           });
+          console.error(error);
           await toast.present();
         }
       );

@@ -30,4 +30,15 @@ export class AccountService {
 
     return this.http.put(`${this.proxy}/put_pii.php`, pii, { headers });
   }
+
+  addActivity(activityInfo: any) {
+    console.log(activityInfo);
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(`${this.proxy}/add_activity.php`, activityInfo, { headers });
+  }
 }

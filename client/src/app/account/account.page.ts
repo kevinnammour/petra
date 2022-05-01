@@ -22,4 +22,8 @@ export class AccountPage {
   goToPiiPage() {
     this.router.navigate(['/pii-page']);
   }
+
+  goToPublishPage() {
+    this.router.navigate(['/publish-activity']);
+  }
 }

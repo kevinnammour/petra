@@ -33,7 +33,6 @@ export class PiiPagePage {
   ionViewDidEnter() {
     this.accountService.getPersonalInformation().subscribe(
       (result: any) => {
-        // console.log(result);
         this.fullname = result.full_name;
         this.username = result.username;
         this.email = result.email;
@@ -80,7 +79,6 @@ export class PiiPagePage {
       });
       await alert.present();
     } else {
-      console.log(form.value);
       this.accountService.savePersonalInformation(form.value).subscribe(
         async (result: any) => {
           const toast = await this.toastCtrl.create({
@@ -96,7 +94,6 @@ export class PiiPagePage {
             duration: 3000,
             color: 'primary',
           });
-          console.error(error);
           await toast.present();
         }
       );

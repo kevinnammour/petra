@@ -1,0 +1,71 @@
+ion-toolbar {
+  --background: #f5f5f5;
+  height: 80px;
+  display: flex;
+}
+
+ion-content {
+  --background: #f5f5f5;
+
+  .container {
+    width: calc(100% - 10%);
+    margin: 20px auto 0px auto;
+
+    #store-picture {
+      display: block;
+      position: relative;
+      margin: 50px auto 0px auto;
+      width: 40%;
+      height: 40%;
+    }
+
+    #publish {
+      margin-top: 50px;
+
+      ion-searchbar {
+        width: 100%;
+        font-family: "Poppins";
+        font-size: 90%;
+      }
+
+      ion-item.search-result {
+        font-family: "Poppins";
+        font-size: 90%;
+      }
+
+      ion-item {
+        --background: #f5f5f5;
+
+        ion-label {
+          font-family: "Poppins";
+          color: var(--ion-color-primary);
+        }
+
+        ion-input,
+        ion-textarea,
+        ion-select,
+        ion-select-option {
+          color: var(--ion-color-secondary);
+          font-family: "Poppins";
+          font-size: 100%;
+        }
+      }
+
+      .btns {
+        margin-bottom: 20px;
+        margin-top: 30px;
+
+        ion-button {
+          height: 45px;
+          border-radius: 50px;
+          box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+          font-family: "Poppins";
+          font-weight: normal;
+          text-transform: none;
+          font-size: 90%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

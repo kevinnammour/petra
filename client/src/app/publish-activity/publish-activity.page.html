@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="returnAccountPage()" color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <img id="store-picture" src="assets/store.png" alt="" />
+
+    <form id="publish" #f="ngForm" (ngSubmit)="submitActivity(f)">
+      <ion-searchbar
+      color="primary"
+      debounce="100"
+      (ionChange)="search($event)"
+      [value]="selectedAddress"
+      name="location"
+      placeholder="Enter business location"
+      ngModel
+    ></ion-searchbar>
+    <div>
+      <ion-list
+        class="dropdown-menu"
+        color="primary"
+        lines="none"
+        *ngIf="addresses.length > 0"
+      >
+        <ion-item
+          class="search-result"
+          color="primary"
+          button
+          *ngFor="let address of addresses"
+          (click)="onSelect(address)"
+        >
+          {{ address }}
+        </ion-item>
+      </ion-list>
+    </div>
+      <ion-item>
+        <ion-label position="floating" color="primary">Category</ion-label>
+        <ion-select name="category" ngModel>
+          <ion-select-option value="Hiking">Hiking</ion-select-option>
+          <ion-select-option value="ATV">ATV</ion-select-option>
+          <ion-select-option value="Paintball">Paintball</ion-select-option>
+          <ion-select-option value="Kayaking">Kayaking</ion-select-option>
+          <ion-select-option value="Biking">Biking</ion-select-option>
+          <ion-select-option value="Skydiving">Skydiving</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea name="description" ngModel></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating" color="primary">Price $</ion-label>
+        <ion-input type="number" color="secondary" name="price" ngModel></ion-input>
+      </ion-item>
+      <div class="btns">
+        <ion-button size="large" shape="round" type="submit">
+          <span>Submit</span>
+        </ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

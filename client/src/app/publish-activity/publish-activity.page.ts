@@ -46,6 +46,7 @@ export class PublishActivityPage {
             color: 'primary',
           });
           await toast.present();
+          form.reset();
         },
         async (error) => {
           const toast = await this.toastCtrl.create({

@@ -14,7 +14,7 @@ ion-content {
     div.activity {
       height: auto;
       background-color: white;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      box-shadow: rgba(255, 0, 153, 0.35) 0px 5px 15px;
       box-sizing: border-box;
       border-radius: 20px;
       margin-bottom: 50px;
@@ -43,11 +43,31 @@ ion-content {
         }
       }
 
+      .desc {
+        font-family: "Poppins";
+        color: var(--ion-color-secondary);
+        font-weight: normal;
+        font-size: 100%;
+      }
+
       .price {
         font-family: "Poppins";
         color: var(--ion-color-secondary);
         font-weight: normal;
         font-size: 90%;
+      }
+
+      ion-button {
+        display: flex;
+        margin: auto;
+        height: 45px;
+        border-radius: 50px;
+        box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+        font-family: "Poppins";
+        font-weight: normal;
+        text-transform: none;
+        font-size: 90%;
+        width: 100%;
       }
     }
 

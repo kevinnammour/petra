@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="returnToSearchPage()" color="primary">
@@ -12,10 +12,15 @@
   <div class="container">
     <div class="activities" *ngIf="activities !== null">
       <div button class="activity" button *ngFor="let activity of activities">
-        <img src="https://pixabay.com/get/gd2411f1799d4c58be54aabfc53c1f34ddedcc16420ee8a8bf524bb15a672ec65a14785c7ed0c37878966f54134a5d535664fa6aca5754774edbcd1bd59a3e67d_640.jpg" alt="">
+        <img src="{{'assets/' + activity.category.toLowerCase() + '.png'}}"  alt="">
+
         <p class="category">{{activity.category}}</p>
         <p class="location"><ion-icon name="location-sharp"></ion-icon>{{activity.location}}</p>
+        <p class="desc">{{activity.description}}</p>
         <p class="price">${{activity.price}} / person</p>
+        <ion-button (click)="bookmark(activity)" size="large" shape="round">
+          <span>Bookmark</span>
+        </ion-button>
       </div>
     </div>
     <div class="no-content" *ngIf="activities === null">

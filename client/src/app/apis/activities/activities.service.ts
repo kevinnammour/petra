@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'environments/environment.prod';
 import { map } from 'rxjs/operators';
 
@@ -19,6 +19,7 @@ export interface Feature {
   providedIn: 'root',
 })
 export class ActivitiesService {
+  private proxy = 'http://localhost/petra/server/apis/home';
   constructor(private http: HttpClient) {}
 
   search_word(query: string) {
@@ -31,6 +32,22 @@ export class ActivitiesService {
       map((res: MapboxOutput) => {
         return res.features;
       })
+    );
+  }
+
+  bookmark(activity_id: any) {
+    const token = localStorage.getItem('token');
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.post(
+      `${this.proxy}/bookmark.php`,
+      {
+        activity_id,
+      },
+      { headers }
     );
   }
 }

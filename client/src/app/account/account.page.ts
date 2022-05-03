@@ -26,4 +26,9 @@ export class AccountPage {
   goToPublishPage() {
     this.router.navigate(['/publish-activity']);
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/landing']);
+  }
 }

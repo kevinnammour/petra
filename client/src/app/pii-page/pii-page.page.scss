@@ -23,24 +23,6 @@ ion-content {
         width: 100%;
         height: 100%;
       }
-
-      #camera-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        bottom: 5px;
-        right: 5px;
-        width: 35px;
-        height: 35px;
-        background-color: var(--ion-color-primary);
-        border-radius: 50%;
-      }
-
-      #change-profile-picture {
-        font-size: 20px;
-        color: white;
-      }
     }
 
     #pii {

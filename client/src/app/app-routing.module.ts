@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'publish-activity',
     loadChildren: () => import('./publish-activity/publish-activity.module').then( m => m.PublishActivityPageModule)
   },
+  {
+    path: 'bookmarks',
+    loadChildren: () => import('./bookmarks/bookmarks.module').then( m => m.BookmarksPageModule)
+  },
 
 
 ];

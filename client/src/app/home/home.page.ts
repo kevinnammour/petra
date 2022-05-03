@@ -26,6 +26,14 @@ export class HomePage {
     this.router.navigate(['/search']);
   }
 
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
+  goBookmarks() {
+    this.router.navigate(['/bookmarks']);
+  }
+
   goAccount() {
     this.router.navigate(['/account']);
   }

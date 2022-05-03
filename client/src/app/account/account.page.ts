@@ -19,6 +19,14 @@ export class AccountPage {
     this.router.navigate(['/home']);
   }
 
+  goBookmarks() {
+    this.router.navigate(['/bookmarks']);
+  }
+
+  goAccount() {
+    this.router.navigate(['/account']);
+  }
+
   goToPiiPage() {
     this.router.navigate(['/pii-page']);
   }

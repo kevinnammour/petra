@@ -67,11 +67,11 @@
 
 <ion-tab-bar slot="bottom" color="primary">
   <ion-tab-button tab="home">
-    <ion-icon name="home"></ion-icon>
+    <ion-icon name="home" (click)="goHome()"></ion-icon>
   </ion-tab-button>
 
   <ion-tab-button tab="map">
-    <ion-icon name="map-outline"></ion-icon>
+    <ion-icon name="map-outline" (click)="goBookmarks()"></ion-icon>
   </ion-tab-button>
 
   <ion-tab-button tab="account">

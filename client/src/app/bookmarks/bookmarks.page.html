@@ -7,7 +7,24 @@
 
 <ion-content>
   <div class="container">
+    <h1>Bookmarks</h1>
+    <div class="activities" *ngIf="bookmarks !== null">
+      <div button class="activity" button *ngFor="let bookmark of bookmarks">
+        <img src="{{'assets/' + bookmark.category.toLowerCase() + '.png'}}"  alt="">
 
+        <p class="category">{{bookmark.category}}</p>
+        <p class="location"><ion-icon name="location-sharp"></ion-icon>{{bookmark.location}}</p>
+        <p class="desc">{{bookmark.description}}</p>
+        <p class="price">${{bookmark.price}} / person</p>
+        <ion-button (click)="removeBookmark(bookmark)" size="large" shape="round">
+          <span>Remove</span>
+        </ion-button>
+      </div>
+    </div>
+    <div class="no-content" *ngIf="bookmarks === null || bookmarks.length === 0">
+      <ion-icon name="sad-outline"></ion-icon>
+      <p>No bookmarks found!</p>
+    </div>
   </div>
 </ion-content>
 

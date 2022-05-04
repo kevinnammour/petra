@@ -75,7 +75,6 @@ export class ActivitiesPage {
       })
       .subscribe((res: any) => {
         this.activities = res;
-        console.log(this.activities);
       });
   }
 }

@@ -10,6 +10,7 @@
 
 <ion-content>
   <div class="container">
+    <h1>Search results</h1>
     <div class="activities" *ngIf="activities !== null">
       <div button class="activity" button *ngFor="let activity of activities">
         <img src="{{'assets/' + activity.category.toLowerCase() + '.png'}}"  alt="">
@@ -17,6 +18,7 @@
         <p class="category">{{activity.category}}</p>
         <p class="location"><ion-icon name="location-sharp"></ion-icon>{{activity.location}}</p>
         <p class="desc">{{activity.description}}</p>
+        <p class="owner">Posted by <span class="username" (click)="showOwnerInfo(activity)">{{activity.username}}</span></p>
         <p class="price">${{activity.price}} / person</p>
         <ion-button (click)="bookmark(activity)" size="large" shape="round">
           <span>Bookmark</span>

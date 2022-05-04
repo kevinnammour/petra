@@ -42,3 +42,22 @@
   src: url("./assets/fonts/Poppins-Bold.ttf");
 }
 
+.alert-msg p {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.alert-msg p span:nth-child(1) {
+  margin-top: 10px;
+  font-size: 90%;
+  font-weight: bold;
+  font-family: "Poppins";
+  color: var(--ion-color-primary);
+}
+
+.alert-msg p span:nth-child(2) {
+  margin-top: 10px;
+  font-size: 85%;
+  font-family: "Poppins";
+  color: black;
+}

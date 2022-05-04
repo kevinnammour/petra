@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
     $categories_array = explode(",", $categories);
 
-    $query = $mysqli->prepare('SELECT activity_id, category, description, price, location, activity_image FROM activities WHERE (price >= ?) AND (price <= ?) AND (location = ?)');
+    $query = $mysqli->prepare('SELECT activity_id, category, description, price, location, full_name, username, country, gender, whatsapp, facebook, instagram, tiktok FROM activities AS activity INNER JOIN users AS user ON activity.user_id = user.user_id WHERE (price >= ?) AND (price <= ?) AND (location = ?)');
     $query->bind_param('dds', $min, $max, $location);
 
     try {

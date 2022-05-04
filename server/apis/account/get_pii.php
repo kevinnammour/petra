@@ -20,7 +20,7 @@ try {
                 http_response_code(401);
                 echo json_encode(array('message' => 'User not authorized.'));
             }
-            $query = $mysqli->prepare('SELECT full_name, username, email, country, gender, whatsapp, facebook, instagram, tiktok, user_image FROM users WHERE user_id = ?');
+            $query = $mysqli->prepare('SELECT full_name, username, email, country, gender, whatsapp, facebook, instagram, tiktok FROM users WHERE user_id = ?');
             $query->bind_param('i', $user_id);
             $query->execute();
             $result = $query->get_result();

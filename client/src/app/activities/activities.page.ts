@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,6 +17,7 @@ export class ActivitiesPage {
     private activitiesService: ActivitiesService,
     private http: HttpClient,
     private toastCtrl: ToastController,
+    private alertCtrl: AlertController
   ) {}
 
   returnToSearchPage() {
@@ -44,6 +46,21 @@ export class ActivitiesPage {
     );
   }
 
+  async showOwnerInfo(activity: any) {
+    const alert = await this.alertCtrl.create({
+      message: `<p><span>Name: </span><span>${activity.full_name}</span></p>
+      <p><span>Country: </span><span>${activity.country}</span></p>
+      <p><span>Gender: </span><span>${activity.gender}</span></p>
+      <p><span>Whatsapp: </span><span>${activity.whatsapp}</span></p>
+      <p><span>Facebook: </span><span>${activity.facebook}</span></p>
+      <p><span>Instgram: </span><span>${activity.instagram}</span></p>
+      <p><span>Tiktok: </span><span>${activity.tiktok}</span></p>`,
+      buttons: ['Close'],
+      cssClass: 'alert-msg'
+    });
+    await alert.present();
+  }
+
   ionViewDidEnter() {
     const filters: any = {
       min: localStorage.getItem('min'),
@@ -52,14 +69,13 @@ export class ActivitiesPage {
       categories: localStorage.getItem('activities'),
     };
 
-    console.log(filters);
-
     this.http
       .get('http://localhost/petra/server/apis/home/search.php', {
         params: filters,
       })
       .subscribe((res: any) => {
         this.activities = res;
+        console.log(this.activities);
       });
   }
 }

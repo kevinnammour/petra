@@ -76,6 +76,17 @@ ion-content {
         font-size: 100%;
       }
 
+      .owner {
+        font-family: "Poppins";
+        color: var(--ion-color-secondary);
+        font-weight: normal;
+        font-size: 100%;
+
+        .username {
+          color: var(--ion-color-primary);
+        }
+      }
+
       .price {
         font-family: "Poppins";
         color: var(--ion-color-secondary);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { BookmarksService } from 'app/apis/bookmarks/bookmarks.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class BookmarksPage {
   constructor(
     private router: Router,
     private bookmarksService: BookmarksService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private alertCtrl: AlertController
   ) {}
 
   goHome() {
@@ -32,8 +33,24 @@ export class BookmarksPage {
   ionViewDidEnter() {
     this.bookmarksService.getBookmarks().subscribe((res: any) => {
       this.bookmarks = res;
+      console.log(res);
     });
     this.image = localStorage.getItem('image');
+  }
+
+  async showOwnerInfo(activity: any) {
+    const alert = await this.alertCtrl.create({
+      message: `<p><span>Name: </span><span>${activity.full_name}</span></p>
+      <p><span>Country: </span><span>${activity.country}</span></p>
+      <p><span>Gender: </span><span>${activity.gender}</span></p>
+      <p><span>Whatsapp: </span><span>${activity.whatsapp}</span></p>
+      <p><span>Facebook: </span><span>${activity.facebook}</span></p>
+      <p><span>Instgram: </span><span>${activity.instagram}</span></p>
+      <p><span>Tiktok: </span><span>${activity.tiktok}</span></p>`,
+      buttons: ['Close'],
+      cssClass: 'alert-msg',
+    });
+    await alert.present();
   }
 
   removeBookmark(activity: any) {

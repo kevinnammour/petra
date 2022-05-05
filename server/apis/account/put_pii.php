@@ -23,6 +23,7 @@ try {
                 http_response_code(401);
             }
             if ($user_id !== null) {
+                // Sanitizing data
                 $params = json_decode(file_get_contents("php://input"));
                 $full_name = htmlspecialchars(strip_tags($params->fullname));
                 $country = htmlspecialchars(strip_tags($params->country));

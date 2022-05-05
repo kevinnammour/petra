@@ -5,7 +5,7 @@ require __DIR__ . '/../../config/cors.php';
 use \Firebase\JWT\JWT;
 
 try {
-    if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $auth_headers = getallheaders();
         if (isset(($auth_headers['Authorization']))) {
             $user_id;

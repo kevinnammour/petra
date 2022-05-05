@@ -1,8 +1,11 @@
 <?php
 require __DIR__ . '/../../config/database.php';
 require __DIR__ . '/../../config/cors.php';
+
+use \Firebase\JWT\JWT;
+
 try {
-    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] == "DELETE") {
         $auth_headers = getallheaders();
         if (isset(($auth_headers['Authorization']))) {
             $user_id;
@@ -18,27 +21,25 @@ try {
             } catch (Exception $e) {
                 // Unauthorized (if the token did not decode correctly)
                 http_response_code(401);
-                echo json_encode(array('message' => 'User not authorized.'));
             }
-            $params = json_decode(file_get_contents("php://input"));
-            $activity_id = htmlspecialchars(strip_tags($params->activity_id));
-
-            $query = $mysqli->prepare('DELETE FROM bookmarks WHERE user_id = ? AND activity_id = ?');
-            $query->bind_param('ii', $user_id, $activity_id);
-            $query->execute();
-            http_response_code(200);
-            echo json_encode(array('message' => 'Bookmark was removed successfully.'));
+            if ($user_id !== null) {
+                $params = json_decode(file_get_contents("php://input"));
+                $activity_id = htmlspecialchars(strip_tags($params->activity_id));
+    
+                $query = $mysqli->prepare('DELETE FROM bookmarks WHERE user_id = ? AND activity_id = ?');
+                $query->bind_param('ii', $user_id, $activity_id);
+                $query->execute();
+                http_response_code(200);
+                echo json_encode(array('message' => 'Bookmark was removed successfully.'));
+            }
         } else {
             // Unauthorized (if the auth header was not set)
             http_response_code(401);
-            echo json_encode(array('message' => 'User not authorized.'));
         }
     } else {
+        // 404 Not found (if the request type is wrong ...)
         http_response_code(404);
-        echo json_encode(array('message' => 'Request not processed.'));
     }
 } catch (Exception $e) {
-    // Internal server error
     http_response_code(500);
-    echo json_encode(array('message' => 'Internal server error.'));
 }

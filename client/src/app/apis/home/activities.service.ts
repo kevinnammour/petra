@@ -35,7 +35,7 @@ export class ActivitiesService {
   }
 
   searchActivities(filters: any) {
-    return this.http.get('/search.php', {
+    return this.http.get(`${this.proxy}/search.php`, {
       params: filters,
     });
   }

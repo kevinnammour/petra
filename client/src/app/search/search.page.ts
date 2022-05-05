@@ -16,7 +16,7 @@ export class SearchPage implements OnInit {
   constructor(
     private router: Router,
     private alertCtrl: AlertController,
-    private mapboxService: ActivitiesService
+    private activitiesService: ActivitiesService
   ) {}
 
   ngOnInit() {}
@@ -57,7 +57,7 @@ export class SearchPage implements OnInit {
   search(event: any) {
     const searchTerm = event.target.value.toLowerCase();
     if (searchTerm && searchTerm.length > 0) {
-      this.mapboxService
+      this.activitiesService
         .search_word(searchTerm)
         .subscribe((features: Feature[]) => {
           this.addresses = features.map((feat) => feat.place_name);

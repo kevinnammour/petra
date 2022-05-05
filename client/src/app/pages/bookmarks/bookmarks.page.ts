@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
 import { BookmarksService } from 'app/apis/bookmarks/bookmarks.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class BookmarksPage {
     private router: Router,
     private bookmarksService: BookmarksService,
     private toastCtrl: ToastController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private modalController: ModalController
   ) {}
 
   goHome() {
@@ -33,7 +34,6 @@ export class BookmarksPage {
   ionViewDidEnter() {
     this.bookmarksService.getBookmarks().subscribe((res: any) => {
       this.bookmarks = res;
-      console.log(res);
     });
     this.image = localStorage.getItem('image');
   }
@@ -69,7 +69,6 @@ export class BookmarksPage {
         this.bookmarks = copy;
       },
       async (error) => {
-        console.error(error);
         const toast = await this.toastCtrl.create({
           message: 'Something went wrong. Please try again.',
           duration: 3000,

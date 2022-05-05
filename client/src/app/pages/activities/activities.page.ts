@@ -35,7 +35,6 @@ export class ActivitiesPage {
         await toast.present();
       },
       async (error) => {
-        console.error(error);
         const toast = await this.toastCtrl.create({
           message: 'Activity already bookmarked.',
           duration: 3000,

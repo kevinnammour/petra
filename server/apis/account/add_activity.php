@@ -24,6 +24,8 @@ try {
             }
             if ($user_id !== null) {
                 $params = json_decode(file_get_contents("php://input"));
+                
+                // Sanitizing data
                 $category = htmlspecialchars(strip_tags($params->category));
                 $description = htmlspecialchars(strip_tags($params->description));
                 $price = htmlspecialchars(strip_tags($params->price));

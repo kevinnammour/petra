@@ -10,5 +10,8 @@ I'm a 20yo senior at the Lebanese American University majoring in Computer Scien
 - Download [xampp](https://www.apachefriends.org/download.html).
 - Run Apache & MySQL
 - Inside the server folder, create a .env file (env vars in the .env.example).
-- For the ACCESS_KEY, create your own [here](https://positionstack.com/).
-- Run the client & start using the app 🙂
+- For the SECRET_KEY, get your own by running this command in your node terminal
+```
+ console.log(require('crypto').randomBytes(256).toString('base64'));
+```
+- Run the client using ```npm start``` & start using the app 🙂

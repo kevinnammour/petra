@@ -15,17 +15,16 @@
       <h1>Petra</h1>
     </div>
 
-    <form id="form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form id="form" #f="ngForm" (ngSubmit)="login(f)">
       <ion-item class="ion-margin-bottom" color="primary">
-      <ion-input type="text" placeholder="Email or username" formControlName="emailorusername"></ion-input>
+      <ion-input type="text" placeholder="Email or username" name="emailorusername" ngModel></ion-input>
       </ion-item>
 
       <ion-item class="ion-margin-bottom" color="primary">
-      <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      <ion-input type="password" placeholder="Password" name="password" ngModel></ion-input>
       </ion-item>
 
-      <!-- <a class="login__anchor-forgotpass" href="#">Forgot password?</a> -->
-      <ion-button size="large" shape="round" type="submit" [disabled]="loginForm.invalid">
+      <ion-button size="large" shape="round" type="submit">
         <span>Login</span>
         <ion-icon name="log-in"></ion-icon>
       </ion-button>

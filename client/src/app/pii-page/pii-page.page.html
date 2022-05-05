@@ -11,25 +11,21 @@
 <ion-content>
   <div class="container">
     <div id="profile-picture-container">
-      <img id="profile-picture" src="assets/profile.png" alt="" />
+      <img id="profile-picture" src="{{'https://avatars.dicebear.com/api/adventurer-neutral/' + image + '.svg?mood[]=happy'}}" alt="" />
     </div>
 
     <form id="pii" #f="ngForm" (ngSubmit)="savePii(f)">
       <ion-item>
         <ion-label position="floating" color="primary">Full name</ion-label>
-        <ion-input type="text" color="secondary" name="fullname" [value]="fullname" ngModel></ion-input>
+        <ion-input type="text" color="secondary" name="fullname" [value]="pii?.full_name" ngModel></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Username</ion-label>
-        <ion-input type="text" color="secondary" readonly="true" [value]="username"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating" color="primary">Email</ion-label>
-        <ion-input type="email" color="secondary" readonly="true" [value]="email"></ion-input>
+        <ion-input type="text" color="secondary" readonly name="username" [value]="pii?.username" ngModel></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Country</ion-label>
-        <ion-select name="country" [value]="country" ngModel>
+        <ion-select name="country" [value]="pii?.country" ngModel>
           <ion-select-option value="Afghanistan">Afghanistan</ion-select-option>
           <ion-select-option value="Albania">Albania</ion-select-option>
           <ion-select-option value="Algeria">Algeria</ion-select-option>
@@ -197,7 +193,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Gender</ion-label>
-        <ion-select name="gender" [value]="gender" ngModel>
+        <ion-select name="gender" [value]="pii?.gender" ngModel>
           <ion-select-option value="Male">Male</ion-select-option>
           <ion-select-option value="Female">Female</ion-select-option>
           <ion-select-option value="Transgender">Transgender</ion-select-option>
@@ -213,19 +209,19 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Whatsapp</ion-label>
-        <ion-input type="text" color="secondary" name="whatsapp" [value]="whatsapp" ngModel></ion-input>
+        <ion-input type="text" color="secondary" name="whatsapp" [value]="pii?.whatsapp" ngModel></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Facebook</ion-label>
-        <ion-input type="text" color="secondary" name="facebook" [value]="facebook" ngModel></ion-input>
+        <ion-input type="text" color="secondary" name="facebook" [value]="pii?.facebook" ngModel></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Instagram</ion-label>
-        <ion-input type="text" color="secondary" name="instagram" [value]="instagram" ngModel></ion-input>
+        <ion-input type="text" color="secondary" name="instagram" [value]="pii?.instagram" ngModel></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating" color="primary">Tiktok</ion-label>
-        <ion-input type="text" color="secondary" name="tiktok" [value]="tiktok" ngModel></ion-input>
+        <ion-input type="text" color="secondary" name="tiktok" [value]="pii?.tiktok" ngModel></ion-input>
       </ion-item>
       <div class="btns">
         <ion-button size="large" shape="round" type="submit">

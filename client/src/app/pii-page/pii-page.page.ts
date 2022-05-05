@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
 import { AccountService } from 'app/apis/account/account.service';
+import { Pii } from 'app/apis/account/account.service';
 
 @Component({
   selector: 'app-pii-page',
@@ -10,15 +11,16 @@ import { AccountService } from 'app/apis/account/account.service';
   styleUrls: ['./pii-page.page.scss'],
 })
 export class PiiPagePage {
-  fullname = null;
-  username = null;
-  email = null;
-  country = null;
-  gender = null;
-  whatsapp = null;
-  instagram = null;
-  facebook = null;
-  tiktok = null;
+  // fullname = null;
+  // username = null;
+  // country = null;
+  // gender = null;
+  // whatsapp = null;
+  // instagram = null;
+  // facebook = null;
+  // tiktok = null;
+  image = null;
+  pii: Pii = null;
   constructor(
     private router: Router,
     private accountService: AccountService,
@@ -31,21 +33,14 @@ export class PiiPagePage {
   }
 
   ionViewDidEnter() {
+    this.image = localStorage.getItem('image');
     this.accountService.getPersonalInformation().subscribe(
-      (result: any) => {
-        this.fullname = result.full_name;
-        this.username = result.username;
-        this.email = result.email;
-        this.country = result.country;
-        this.gender = result.gender;
-        this.whatsapp = result.whatsapp;
-        this.instagram = result.instagram;
-        this.facebook = result.facebook;
-        this.tiktok = result.tiktok;
+      (res: Pii) => {
+        this.pii = res;
       },
       async (error) => {
         const alert = await this.alertCtrl.create({
-          message: 'Not all information were brought successfully',
+          message: 'Something went wrong, please go back and come again!',
           buttons: ['OK'],
         });
         await alert.present();
@@ -55,20 +50,6 @@ export class PiiPagePage {
 
   async savePii(form: NgForm) {
     if (
-      form.value.fullname === this.fullname &&
-      form.value.country === this.country &&
-      form.value.gender === this.gender &&
-      form.value.whatsapp === this.whatsapp &&
-      form.value.facebook === this.facebook &&
-      form.value.instagram === this.instagram &&
-      form.value.tiktok === this.tiktok
-    ) {
-      const alert = await this.alertCtrl.create({
-        message: 'No changes were detected.',
-        buttons: ['OK'],
-      });
-      await alert.present();
-    } else if (
       !form.value.fullname.match(
         /^[\w'\-,.][^0-9_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]{1,}$/
       )
@@ -80,9 +61,9 @@ export class PiiPagePage {
       await alert.present();
     } else {
       this.accountService.savePersonalInformation(form.value).subscribe(
-        async (result: any) => {
+        async (res: any) => {
           const toast = await this.toastCtrl.create({
-            message: result.message,
+            message: res.message,
             duration: 3000,
             color: 'primary',
           });

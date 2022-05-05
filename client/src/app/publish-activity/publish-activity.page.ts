@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
-import { ActivitiesService, Feature } from 'app/apis/activities/activities.service';
+import { ActivitiesService, Feature } from 'app/apis/home/activities.service';
 import { AccountService } from 'app/apis/account/account.service';
 
 @Component({

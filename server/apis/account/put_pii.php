@@ -1,6 +1,9 @@
 <?php
 require __DIR__ . '/../../config/database.php';
 require __DIR__ . '/../../config/cors.php';
+
+use \Firebase\JWT\JWT;
+
 try {
     if ($_SERVER['REQUEST_METHOD'] == "PUT") {
         $auth_headers = getallheaders();
@@ -18,34 +21,31 @@ try {
             } catch (Exception $e) {
                 // Unauthorized (if the token did not decode correctly)
                 http_response_code(401);
-                echo json_encode(array('message' => 'User not authorized.'));
             }
-            $params = json_decode(file_get_contents("php://input"));
-            $full_name = htmlspecialchars(strip_tags($params->fullname));
-            $country = htmlspecialchars(strip_tags($params->country));
-            $gender = htmlspecialchars(strip_tags($params->gender));
-            $whatsapp = htmlspecialchars(strip_tags($params->whatsapp));
-            $tiktok = htmlspecialchars(strip_tags($params->tiktok));
-            $facebook = htmlspecialchars(strip_tags($params->facebook));
-            $instagram = htmlspecialchars(strip_tags($params->instagram));
+            if ($user_id !== null) {
+                $params = json_decode(file_get_contents("php://input"));
+                $full_name = htmlspecialchars(strip_tags($params->fullname));
+                $country = htmlspecialchars(strip_tags($params->country));
+                $gender = htmlspecialchars(strip_tags($params->gender));
+                $whatsapp = htmlspecialchars(strip_tags($params->whatsapp));
+                $tiktok = htmlspecialchars(strip_tags($params->tiktok));
+                $facebook = htmlspecialchars(strip_tags($params->facebook));
+                $instagram = htmlspecialchars(strip_tags($params->instagram));
 
-            $query = $mysqli->prepare('UPDATE users SET full_name = ?, country = ?, gender = ?, whatsapp = ?, tiktok = ?, facebook = ?, instagram = ? WHERE user_id = ?');
-            $query->bind_param('sssssssi', $full_name, $country, $gender, $whatsapp, $tiktok, $facebook, $instagram, $user_id);
-            $query->execute();
-            http_response_code(200);
-            echo json_encode(array('message' => 'User personal information updated successfully.'));
+                $query = $mysqli->prepare('UPDATE users SET full_name = ?, country = ?, gender = ?, whatsapp = ?, tiktok = ?, facebook = ?, instagram = ? WHERE user_id = ?');
+                $query->bind_param('sssssssi', $full_name, $country, $gender, $whatsapp, $tiktok, $facebook, $instagram, $user_id);
+                $query->execute();
+                http_response_code(200);
+                echo json_encode(array('message' => 'User personal information updated successfully.'));
+            }
         } else {
             // Unauthorized (if the auth header was not set)
             http_response_code(401);
-            echo json_encode(array('message' => 'User not authorized.'));
         }
     } else {
-        // Not found (if it was a post request)
+        // 404 Not found (if the request type is wrong ...)
         http_response_code(404);
-        echo json_encode(array('message' => 'Request not processed.'));
     }
 } catch (Exception $e) {
-    // Internal server error
     http_response_code(500);
-    echo json_encode(array('message' => 'Internal server error.'));
 }

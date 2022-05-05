@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { AccountService } from 'app/apis/account/account.service';
 
 @Component({
   selector: 'app-account',
@@ -9,11 +7,12 @@ import { AccountService } from 'app/apis/account/account.service';
   styleUrls: ['./account.page.scss'],
 })
 export class AccountPage {
-  constructor(
-    private router: Router,
-    private modalCtrl: ModalController,
-    private accountService: AccountService
-  ) {}
+  image = null;
+  constructor(private router: Router) {}
+
+  ionViewDidEnter() {
+    this.image = localStorage.getItem('image');
+  }
 
   goHome() {
     this.router.navigate(['/home']);
@@ -36,7 +35,7 @@ export class AccountPage {
   }
 
   logout() {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.router.navigate(['/landing']);
   }
 }

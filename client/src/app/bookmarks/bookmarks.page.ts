@@ -9,6 +9,7 @@ import { BookmarksService } from 'app/apis/bookmarks/bookmarks.service';
   styleUrls: ['./bookmarks.page.scss'],
 })
 export class BookmarksPage {
+  image = null;
   bookmarks: any[] = [];
   constructor(
     private router: Router,
@@ -32,6 +33,7 @@ export class BookmarksPage {
     this.bookmarksService.getBookmarks().subscribe((res: any) => {
       this.bookmarks = res;
     });
+    this.image = localStorage.getItem('image');
   }
 
   removeBookmark(activity: any) {

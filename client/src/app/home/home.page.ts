@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { HttpClient, HttpHeaders  } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,16 +10,29 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private modalCtrl: ModalController, private http: HttpClient, private router: Router) {}
+  image = null;
+  constructor(
+    private modalCtrl: ModalController,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   getUserData() {
     const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     });
 
-    this.http.post('http://localhost/petra/server/apis/account/test.php', 'body', {headers}).subscribe(console.log);
+    this.http
+      .post('http://localhost/petra/server/apis/account/test.php', 'body', {
+        headers,
+      })
+      .subscribe(console.log);
+  }
+
+  ionViewDidEnter() {
+    this.image = localStorage.getItem('image');
   }
 
   search() {

@@ -9,19 +9,12 @@ try {
         $params = json_decode(file_get_contents("php://input"));
 
         // Sanitizing data
-        $email_or_username = htmlspecialchars(strip_tags($params->emailorusername));
+        $username = htmlspecialchars(strip_tags($params->username));
         $password = htmlspecialchars(strip_tags($params->password));
 
         $query;
-        $regex = '/\@/';
-        if (preg_match($regex, $email_or_username) === 1) {
-            // If it includes a '@' character, it is intended as an email
-            $query = $mysqli->prepare('SELECT * FROM users WHERE email = ?');
-        } else {
-            // Since username cannot contain an @ (prohibited on sign up)
-            $query = $mysqli->prepare('SELECT * FROM users WHERE username = ?');
-        }
-        $query->bind_param('s', $email_or_username);
+        $query = $mysqli->prepare('SELECT * FROM users WHERE username = ?');
+        $query->bind_param('s', $username);
 
         $query->execute();
         $result = $query->get_result();
@@ -38,7 +31,6 @@ try {
                     'user_id' => $user['user_id'],
                     'full_name' => $user['full_name'],
                     'username' => $user['username'],
-                    'email' => $user['email'],
                 );
                 $jwt_token = JWT::encode($payload, $secret_key, 'HS256');
                 http_response_code(200);

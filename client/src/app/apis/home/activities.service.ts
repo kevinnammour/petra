@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'environments/environment.prod';
 import { map } from 'rxjs/operators';
 
 export interface MapboxOutput {
@@ -33,6 +32,12 @@ export class ActivitiesService {
         return res.features;
       })
     );
+  }
+
+  searchActivities(filters: any) {
+    return this.http.get('/search.php', {
+      params: filters,
+    });
   }
 
   bookmark(activity_id: any) {

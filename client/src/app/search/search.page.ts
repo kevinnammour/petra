@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { ActivitiesService, Feature } from 'app/apis/activities/activities.service';
+import { ActivitiesService, Feature } from 'app/apis/home/activities.service';
 
 @Component({
   selector: 'app-search',

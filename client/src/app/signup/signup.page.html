@@ -15,22 +15,18 @@
       <h1>Petra</h1>
     </div>
 
-    <form id="form" [formGroup]="registerForm" (ngSubmit)="register()">
+    <form id="form" #f="ngForm" (ngSubmit)="register(f)">
       <ion-item class="ion-margin-bottom" color="primary">
-        <ion-input type="text" placeholder="Full name" formControlName="fullname"></ion-input>
+        <ion-input type="text" placeholder="Full name" name="fullname" ngModel></ion-input>
       </ion-item>
       <ion-item class="ion-margin-bottom" color="primary">
-        <ion-input type="text" placeholder="Username" formControlName="username"></ion-input>
+        <ion-input type="text" placeholder="Username" name="username" ngModel></ion-input>
       </ion-item>
       <ion-item class="ion-margin-bottom" color="primary">
-        <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
-      </ion-item>
-      <ion-item class="ion-margin-bottom" color="primary">
-        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        <ion-input type="password" placeholder="Password" name="password" ngModel></ion-input>
       </ion-item>
 
-      <ion-button type="submit" size="large" shape="round"
-        [disabled]="registerForm.invalid"><span>Create account</span></ion-button
+      <ion-button type="submit" size="large" shape="round"><span>Create account</span></ion-button
       >
     </form>
 

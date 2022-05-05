@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
-import { ActivitiesService } from 'app/apis/activities/activities.service';
+import { ActivitiesService } from 'app/apis/home/activities.service';
 
 @Component({
   selector: 'app-activities',
@@ -56,7 +56,7 @@ export class ActivitiesPage {
       <p><span>Instgram: </span><span>${activity.instagram}</span></p>
       <p><span>Tiktok: </span><span>${activity.tiktok}</span></p>`,
       buttons: ['Close'],
-      cssClass: 'alert-msg'
+      cssClass: 'alert-msg',
     });
     await alert.present();
   }
@@ -69,12 +69,10 @@ export class ActivitiesPage {
       categories: localStorage.getItem('activities'),
     };
 
-    this.http
-      .get('http://localhost/petra/server/apis/home/search.php', {
-        params: filters,
-      })
-      .subscribe((res: any) => {
+    this.activitiesService.searchActivities(filters).subscribe(
+      async (res: any) => {
         this.activities = res;
-      });
+      },
+    );
   }
 }

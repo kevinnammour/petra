@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { SigninService } from 'app/apis/signin.service';
+import { SigninService } from 'app/apis/auth/signin.service';
 import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
@@ -10,7 +10,6 @@ import { AlertController, LoadingController } from '@ionic/angular';
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-
   constructor(
     private route: Router,
     private signinService: SigninService,
@@ -26,6 +25,12 @@ export class SigninPage implements OnInit {
     this.route.navigate(['signup']);
   }
 
+  genRand(len: any) {
+    return Math.random()
+      .toString(36)
+      .substring(2, len + 2);
+  }
+
   async login(form: NgForm) {
     const loading = await this.loadingCtrl.create({ message: 'Logging in...' });
     await loading.present();
@@ -35,6 +40,7 @@ export class SigninPage implements OnInit {
         localStorage.setItem('token', token);
         loading.dismiss();
         form.reset();
+        localStorage.setItem('image', this.genRand(8));
         this.route.navigate(['home']);
       },
       async () => {

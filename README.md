@@ -19,4 +19,3 @@ Petra is an app that connects all travellers around the world together. It allow
 
 ## 📱 Demo
 
-<video style="display:block; margin: auto;" controls src="demo/petra.mp4"></video>

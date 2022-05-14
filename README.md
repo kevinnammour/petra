@@ -15,4 +15,6 @@ Petra is an app that connects all travellers around the world together. It allow
 ```
 - Run the client using ```ionic serve``` & start using the app 🙂
 
-## Demo
+## 📱 Demo
+
+<img style = "display: block; margin: auto" src="demo/petra.gif">
